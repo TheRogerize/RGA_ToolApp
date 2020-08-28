@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&display=swap" rel="stylesheet">
+        <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .rgaImage {
+            width: 200px;
+            height: 200px;
+            margin: 0px auto;
+            background-size:cover;
+            position: relative;
+        }
+        .rgaImage img {
+            width: 200px;
+            height: 200px;
+            margin: 0px auto;
+        }
+        table {
+            border-collapse: collapse;
+            border-radius: 5px;
+            table-layout: fixed;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        table, th, td {
+            border: 1px solid black;
+            word-wrap:break-word;
+        }
+        td {
+            max-width: 150px;
+            padding: 2px 4px;
+        }
+        tr:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+        .cursoInfo {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            flex-wrap: nowrap;
+        }
+        .cursoInfo .infoText {
+            display: column;
+            position: relative;
+        }
+        .cursoInfo .infoText h2{
+            font-size: 35px;
+            font-weight:700;
+            color: #3ab376;
+            border: 2px solid #3ab376;
+            padding: 2px 5px;
+        }
+        .cursoInfo .infoText .pWrapper {
+            padding: 5px 7px;
+            border: 1.3px solid #616362;
+        }
+        .cursoInfo .infoText .pWrapper p{
+            font-size: 18px;
+            margin: 4px 0px;
+            font-weight:500;
+            color: #464646;
+            padding: 2px 5px;
+        }
+        .shrinkColumn {
+            max-width: 50px;
+        }
+        </style>
+    </head>
+    <body>
+        <div style="width: 90%; margin: 0 4.5%;">
+            <div class="cursoInfo">
+                <div class="infoText">
+                    <h2><%= universidad.nombre_univ %></h2> 
+                    <h3>ID de la Universidad: <%= universidad._id %></h3>
+                </div>
+            </div>
+            <div style="text-align: center; padding-left: 50px;padding-top: 20px;">  
+                <h2>Lista de Coordinadores</h2>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Facultad</th>
+                        <th>Cargo</th>
+                        <th>Carnet</th>
+                        <th>Telefono</th>
+                        <th>Correo</th>
+                    </tr>
+                <% if (coordinadores.length > 0) { %>
+                    <% coordinadores.forEach(coordinador => {%>
+                       <tr>
+                                <td class="shrinkColumn"><%= coordinador._id %></td>
+                                <td><%= coordinador.userID.nombre %></td>
+                                <td><%= coordinador.userID.apellido %></td>
+                                 <% if (coordinador.facultadID) { %>
+                                <td><%= coordinador.facultadID.nombre %></td>
+                                <% } else { %>
+                                <td>No asignada</td>
+                                <% }  %>
+                                <td class="shrinkColumn"><%= coordinador.cargo %></td>
+                                <td class="shrinkColumn"><%= coordinador.carnet %></td>
+                                <td class="shrinkColumn"><%= coordinador.userID.telefono %></td>
+                                <td><%= coordinador.userID.correo %></td>
+                        </tr>
+                    <%  });%>
+                <% }%>
+                </table>
+             </div>
+        </div>
+    </body>
+</html>

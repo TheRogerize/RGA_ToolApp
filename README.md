@@ -25,8 +25,6 @@ npm install
 # serve at localhost:3000
 npm run dev
 
-# build for production with minification
-npm run build
 
 ``` 
 #### Note: Be aware that you will have to setup your own MongoDB Atlas Database in the .env file in the "back" directory

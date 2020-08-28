@@ -92,7 +92,6 @@
 import navbar from "../layout/unloggedNavbar";
 import Cookies from "../utils/Cookies";
 import router from "../router.js";
-import axios from "axios";
 import { mapState } from "vuex";
 import {
   required,
@@ -156,9 +155,9 @@ export default {
           this.unauthorized("Los datos ingresados no son válidos");
         }
       } else {
-        const url = "http://localhost:3000/api/user/login";
+        const url = "user/login";
 
-        axios
+        this.$api
           .post(url, user)
           .then((data) => {
             const { errors, user } = data.data;

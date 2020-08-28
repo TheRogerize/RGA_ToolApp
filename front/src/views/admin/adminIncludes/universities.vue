@@ -446,7 +446,6 @@ import {
 } from "vuelidate/lib/validators";
 import { mapState } from "vuex";
 import Modal from "@/components/Modal.vue";
-import axios from "axios";
 import { mapGetters } from "vuex";
 
 export default {
@@ -687,8 +686,8 @@ export default {
           metas: this.newUniversity.metas,
         };
         this.newUniversity.submitStatus = "VALIDATION SUCCEED";
-        let url = "http://localhost:3000/api/universidad/singup_universidad";
-        axios
+        let url = "universidad/singup_universidad";
+        this.$api
           .post(url, this.form)
           .then((response) => {
             const { token } = response.data;
@@ -727,9 +726,9 @@ export default {
           metas: this.editUni.metas,
         };
         let url =
-          "http://localhost:3000/api/universidad/edit_universidad/" +
+          "universidad/edit_universidad/" +
           this.editUni.id;
-        axios
+        this.$api
           .post(url, this.form)
           .then((response) => {
             let type = response.data.type;

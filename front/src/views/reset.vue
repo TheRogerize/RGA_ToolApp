@@ -99,7 +99,6 @@
 import navbar from '../layout/unloggedNavbar';
 import Cookies from "../utils/Cookies";
 import router from "../router.js";
-import axios from "axios";
 import { mapState } from "vuex";
 import {
   required,
@@ -172,12 +171,12 @@ export default {
       } else {
       let clave = this.user.password;
       alert(clave);
-      const url = "http://localhost:3000/api/user/login";
+      const url = "user/login";
 
-      axios
+      this.$api
         .post(url, clave)
         .then(data => {
-        
+          console.log(data)
         })
 
         .catch((error) => {

@@ -266,7 +266,6 @@ import {
 } from "vuelidate/lib/validators";
 import { mapState } from "vuex";
 import Modal from "@/components/Modal.vue";
-import axios from "axios";
 import Cookies from "../../../utils/Cookies";
 
 import { mapGetters } from "vuex";
@@ -429,8 +428,8 @@ export default {
         this.unauthorized("Se encontraron errores en el formulario");
       } else {
         e.preventDefault();
-        const url = "http://localhost:3000/api/classroom/add_classroom";
-        axios
+        const url = "classroom/add_classroom";
+        this.$api
           .post(url, this.curso, {
             headers: {
               token: Cookies.read("token"),
@@ -467,8 +466,8 @@ export default {
       } else {
         e.preventDefault();
         const url =
-          "http://localhost:3000/api/classroom/add_profesor_classroom";
-        axios
+          "classroom/add_profesor_classroom";
+        this.$api
           .post(url, this.addProfesor)
           .then((response) => {
             //let msg = response.data.msg;

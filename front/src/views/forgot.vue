@@ -75,7 +75,6 @@
 import navbar from "../layout/unloggedNavbar";
 import Cookies from "../utils/Cookies";
 import router from "../router.js";
-import axios from "axios";
 import { mapState } from "vuex";
 import {
   required,
@@ -128,8 +127,8 @@ export default {
       if (this.$v.$invalid) {
         this.unauthorized("Debes ingresar un correo electronico");
       } else {
-        const url = "http://localhost:3000/api/user/askfortoken";
-        axios
+        const url = "user/askfortoken";
+        this.$api
           .post(url, this.user)
           .then((response) => {
             let msg = response.data.message;

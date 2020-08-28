@@ -20,7 +20,6 @@ Vue.prototype.$http = axios;
 
 export default new Vuex.Store({
   modules: {
-    user,
     admin,
     univ,
     coord,

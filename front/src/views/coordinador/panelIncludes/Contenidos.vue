@@ -320,7 +320,6 @@ import {
 } from "vuelidate/lib/validators";
 import { mapState } from "vuex";
 import Modal from "@/components/Modal.vue";
-import axios from "axios";
 import Cookies from "../../../utils/Cookies";
 
 import { mapGetters } from "vuex";
@@ -609,8 +608,8 @@ export default {
       if (this.errors == 0) {
         e.preventDefault();
 
-        const url = "http://localhost:3000/api/contenido/create_contenido";
-        axios
+        const url = "contenido/create_contenido";
+        this.$api
           .post(url, this.contenido, {
             headers: {
               token: Cookies.read("token"),
@@ -667,9 +666,9 @@ export default {
             unidad: this.editCont.unidad,
           };
           let url =
-            "http://localhost:3000/api/contenido/update_contenido/" +
+            "contenido/update_contenido/" +
             this.editCont.id_cont;
-          axios
+          this.$api
             .post(url, this.form)
             .then((response) => {
               let type = response.data.type;

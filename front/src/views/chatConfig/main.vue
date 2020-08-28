@@ -57,7 +57,6 @@ import { mapGetters } from "vuex";
 import store from "../../store";
 import io from "socket.io-client";
 //
-import axios from "axios";
 import Cookies from "../../utils/Cookies";
 
 export default {
@@ -105,8 +104,8 @@ export default {
         roomid: this.user_messages._id,
         msg: this.chat_block,
       };
-      axios
-        .post("http://localhost:3000/api/classroom/add_msg/", data, {
+      this.$api
+        .post("classroom/add_msg/", data, {
           headers: {
             token: Cookies.read("token"),
           },

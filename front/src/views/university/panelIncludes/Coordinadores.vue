@@ -389,7 +389,6 @@ import {
 } from "vuelidate/lib/validators";
 import { mapState } from "vuex";
 import Modal from "@/components/Modal.vue";
-import axios from "axios";
 import Cookies from "../../../utils/Cookies";
 
 import { mapGetters } from "vuex";
@@ -622,8 +621,8 @@ export default {
           carnet: this.newCoor.carnet,
         };
         //alert(this.isLoggedIn);
-        const url = "http://localhost:3000/api/coordinador/singup_";
-        axios
+        const url = "coordinador/singup_";
+        this.$api
           .post(url, this.form, {
             headers: {
               token: Cookies.read("token"),
@@ -663,9 +662,9 @@ export default {
           cargo: this.editCoor.cargo,
         };
         let url =
-          "http://localhost:3000/api/coordinador/edit_coordinador/" +
+          "coordinador/edit_coordinador/" +
           this.editCoor.id_coord;
-        axios
+        this.$api
           .post(url, this.form)
           .then((response) => {
             let type = response.data.type;
@@ -699,8 +698,8 @@ export default {
           coordinadorID: this.facultad.coordinadorID,
           facultadID: this.facultad.facultadID,
         };
-        let url = "http://localhost:3000/api/coordinador/add_to_facultad";
-        axios
+        let url = "coordinador/add_to_facultad";
+        this.$api
           .post(url, this.form)
           .then((response) => {
             if (response.data) {

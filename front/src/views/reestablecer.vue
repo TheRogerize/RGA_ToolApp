@@ -123,7 +123,6 @@
 import navbar from "../layout/unloggedNavbar";
 import Cookies from "../utils/Cookies";
 import router from "../router.js";
-import axios from "axios";
 import { mapState } from "vuex";
 import {
   required,
@@ -218,9 +217,9 @@ export default {
           this.unauthorized("Debes completar todos los campos");
         }
       } else {
-        const url = "http://localhost:3000/api/user/newpassword";
+        const url = "user/newpassword";
 
-        axios
+        this.$api
           .post(url, this.reestablecer)
           .then((response) => {
             let msg = response.data.msg;

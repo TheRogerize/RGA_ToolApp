@@ -44,7 +44,6 @@
 <script>
 import { eventBus } from "../../main";
 import { mapState } from "vuex";
-import axios from "axios";
 import { mapGetters } from "vuex";
 import Cookies from "../../utils/Cookies";
 
@@ -241,10 +240,6 @@ export default {
       },
       immediate: true,
     },
-  },
-  mounted() {
-    if (this.permiso) {
-    }
-  },
+  }
 };
 </script>

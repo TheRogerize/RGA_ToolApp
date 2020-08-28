@@ -1,9 +1,8 @@
 import Vue from "vue";
-import axios from "axios";
 import Cookies from "../../utils/Cookies";
 Vue.prototype.$http = axios;
+const axios = require('../axios');
 
-axios.defaults.baseURL = "http://localhost:3000/api/";
 
 const coord = {
     namespaced: true,

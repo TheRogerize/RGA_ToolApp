@@ -1,8 +1,6 @@
 import Vue from "vue";
-import axios from "axios";
+const axios = require('../axios');
 Vue.prototype.$http = axios;
-
-axios.defaults.baseURL = "http://localhost:3000/api/";
 
 const admin = {
     namespaced: true,

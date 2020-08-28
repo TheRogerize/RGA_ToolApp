@@ -59,8 +59,6 @@ export default {
   },
   mounted() {},
   created() {
-    console.log(process.env);
-    console.log(process.env.PORT);
     eventBus.$on("toggleState", (toggle) => {
       this.toggleSide = toggle;
     });

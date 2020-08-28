@@ -1,9 +1,8 @@
 import Vue from "vue";
-import axios from "axios";
 import Cookies from '../../utils/Cookies'
+const axios = require('../axios');
 Vue.prototype.$http = axios;
 
-axios.defaults.baseURL = "http://localhost:3000/api/";
 
 const chat = {
     namespaced: true,
@@ -45,7 +44,7 @@ const chat = {
     actions: {
     
         getChanne_list ({commit}) {
-            axios.get("http://localhost:3000/api/alumno/get_alumno_room",
+            axios.get("alumno/get_alumno_room",
                         {headers: {'token': Cookies.read("token")}
             })
             .then((response) => {
@@ -56,7 +55,7 @@ const chat = {
             })
         },
         getRoomData({commit}, payload){
-            axios.get("http://localhost:3000/api/classroom/getChat/"+payload)
+            axios.get("classroom/getChat/"+payload)
             .then((response) => {
                 commit("getRoomData",response.data)
             })

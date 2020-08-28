@@ -203,7 +203,6 @@ import {
 } from "vuelidate/lib/validators";
 import { mapState } from "vuex";
 import Modal from "@/components/Modal.vue";
-import axios from "axios";
 
 export default {
   data() {

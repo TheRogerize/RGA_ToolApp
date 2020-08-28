@@ -12,7 +12,7 @@
     <div class="grid-panel">
       <div class="task">
         <div class="task-header">
-          <h2>Tareas pendientes</h2>
+          <h2>Tareas creadas</h2>
           <h5>Fecha limite</h5>
         </div>
         <span v-show="allTareas && allTareas.length">
@@ -74,7 +74,6 @@ import { eventBus } from "../../main";
 import Modal from "@/components/Modal.vue";
 import Tabs from "@/components/Tabs/Tabs.vue";
 import TabPane from "@/components/Tabs/TabPane.vue";
-import axios from "axios";
 import Universities from "@/views/admin/adminIncludes/universities.vue";
 import Teachers from "@/views/admin/adminIncludes/teachers.vue";
 import { mapGetters } from "vuex";

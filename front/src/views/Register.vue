@@ -222,7 +222,6 @@
 import navbar from "../layout/unloggedNavbar";
 import Cookies from "../utils/Cookies";
 import router from "../router.js";
-import axios from "axios";
 import { mapState } from "vuex";
 import {
   required,
@@ -337,8 +336,8 @@ export default {
           clave: this.user.password,
           permiso: 4,
         };
-        const url = "http://localhost:3000/api/alumno/signup";
-        axios
+        const url = "alumno/signup";
+        this.$api
           .post(url, newUser)
           .then((response) => {
             const { token, payload } = response.data;

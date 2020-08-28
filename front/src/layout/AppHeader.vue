@@ -41,7 +41,6 @@
   </header>
 </template>
 <script>
-import axios from "axios";
 import { mapState } from "vuex";
 import Vuex from "vuex";
 import BaseNav from "@/components/BaseNav";

@@ -63,7 +63,6 @@ import {
   email,
   numeric,
 } from "vuelidate/lib/validators";
-import axios from "axios";
 import { mapState } from "vuex";
 import { eventBus } from "../../main";
 import Modal from "@/components/Modal.vue";

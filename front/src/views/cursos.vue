@@ -103,7 +103,6 @@ import { eventBus } from "../main";
 import Modal from "@/components/Modal.vue";
 import Tabs from "@/components/Tabs/Tabs.vue";
 import TabPane from "@/components/Tabs/TabPane.vue";
-import axios from "axios";
 import Universities from "@/views/admin/adminIncludes/universities.vue";
 import Teachers from "@/views/admin/adminIncludes/teachers.vue";
 import { mapGetters } from "vuex";
@@ -204,11 +203,11 @@ export default {
       } else {
         e.preventDefault();
 
-        const url = "http://localhost:3000/api/classroom/invitation_room";
+        const url = "classroom/invitation_room";
         const form = {
           roomID: this.roomID,
         };
-        axios
+        this.$api
           .post(url, form, {
             headers: {
               token: Cookies.read("token"),

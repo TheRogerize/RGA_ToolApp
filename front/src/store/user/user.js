@@ -1,10 +1,9 @@
 import Vue from "vue";
 import router from "../../router";
-import axios from "axios";
 import Cookies from "../../utils/Cookies";
+const axios = require('../axios');
 Vue.prototype.$http = axios;
 
-axios.defaults.baseURL = "http://localhost:3000/api/";
 
 const user = {
   namespaced: true,
@@ -56,8 +55,6 @@ const user = {
       Cookies.create("nivel_usuario", payload.permiso, null);
       const nivelUsuario = Cookies.read("nivel_usuario");
       state.permiso = payload.permiso;
-      Vue.set(state.userData, 'name', "ETEEVEEE");
-
     },
     ID(state, payload) {
       Cookies.create("userID", payload.id, null);

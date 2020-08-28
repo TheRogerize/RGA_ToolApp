@@ -247,7 +247,6 @@ import Modal from "@/components/Modal.vue";
 import Tabs from "@/components/Tabs/Tabs.vue";
 import TabPane from "@/components/Tabs/TabPane.vue";
 import { mapGetters } from "vuex";
-import axios from "axios";
 import Universities from "@/views/admin/adminIncludes/universities.vue";
 import Teachers from "@/views/admin/adminIncludes/teachers.vue";
 import router from "../../router";
@@ -482,7 +481,7 @@ export default {
           return percentCompleted;
         },
       };
-      return axios
+      return this.$api
         .post(url, data, config)
         .then((x) => {
           const uploadResponse = JSON.parse(x.request.response);
@@ -495,8 +494,8 @@ export default {
             tareaid,
           };
           const token = Cookies.read("token");
-          const url = "http://localhost:3000/api/tareas/entregar_tarea";
-          axios
+          const url = "tareas/entregar_tarea";
+          this.$api
             .post(url, dataLoad, {
               headers: {
                 token: token,

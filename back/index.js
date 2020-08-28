@@ -36,9 +36,6 @@ app.use(function (err, req, res, next) {
 app.use("/", index)
 InitiateMongoServer();
 
-
-//De aqui pa abajo puro SOCKET IO
-
 var server = require('http').Server(app);
 let io = require('./controllers/socket.ctrl').initialize(server);
 

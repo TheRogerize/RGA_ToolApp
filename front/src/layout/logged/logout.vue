@@ -4,7 +4,6 @@
 import { mapState } from "vuex";
 import { eventBus } from "../../main";
 import Modal from "@/components/Modal.vue";
-import axios from "axios";
 import store from "../../store/index";
 
 export default {

@@ -496,7 +496,6 @@ import Modal from "@/components/Modal.vue";
 import Tabs from "@/components/Tabs/Tabs.vue";
 import TabPane from "@/components/Tabs/TabPane.vue";
 import { mapGetters } from "vuex";
-import axios from "axios";
 //import CircularJSON from 'circular-json';
 import Universities from "@/views/admin/adminIncludes/universities.vue";
 import Teachers from "@/views/admin/adminIncludes/teachers.vue";
@@ -851,7 +850,7 @@ export default {
           return percentCompleted;
         },
       };
-      return axios
+      return this.$api
         .post(url, data, config)
         .then((x) => {
           const uploadResponse = JSON.parse(x.request.response);
@@ -864,9 +863,9 @@ export default {
             temaID: this.temaID,
             classroomID: this.classroomID,
           };
-          const url = "http://localhost:3000/api/classroom/add_archivo";
+          const url = "classroom/add_archivo";
 
-          axios
+          this.$api
             .post(url, dataLoad)
             .then((data) => {
               this.cleanUploadForm();
@@ -920,7 +919,7 @@ export default {
           return percentCompleted;
         },
       };
-      return axios
+      return this.$api
         .post(url, data, config)
         .then((x) => {
           const uploadResponse = JSON.parse(x.request.response);
@@ -928,10 +927,10 @@ export default {
           const documento_nombre = this.tarea.cloudName;
           this.tarea.documento.documento_nombre = documento_nombre;
           this.tarea.documento.documento_url = documento_url;
-          const url = "http://localhost:3000/api/tareas/create_tarea";
+          const url = "tareas/create_tarea";
           const token = Cookies.read("token");
 
-          axios
+          this.$api
             .post(url, this.tarea, {
               headers: {
                 token: token,

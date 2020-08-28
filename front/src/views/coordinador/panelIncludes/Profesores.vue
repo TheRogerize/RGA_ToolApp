@@ -344,7 +344,6 @@ import {
 } from "vuelidate/lib/validators";
 import { mapState } from "vuex";
 import Modal from "@/components/Modal.vue";
-import axios from "axios";
 import { mapGetters } from "vuex";
 import Cookies from "../../../utils/Cookies";
 
@@ -543,8 +542,8 @@ export default {
           cargo: this.newProf.cargo,
           carnet: this.newProf.carnet,
         };
-        const url = "http://localhost:3000/api/profesor/singup_profesor";
-        axios
+        const url = "profesor/singup_profesor";
+        this.$api
           .post(url, this.form, {
             headers: {
               token: Cookies.read("token"),
@@ -585,9 +584,9 @@ export default {
           carnet: this.editProf.carnet,
         };
         let url =
-          "http://localhost:3000/api/profesor/edit_profesor/" +
+          "profesor/edit_profesor/" +
           this.editProf.id_prof;
-        axios
+        this.$api
           .post(url, this.form)
           .then((response) => {
             let type = response.data.type;

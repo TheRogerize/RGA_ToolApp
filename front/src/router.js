@@ -182,7 +182,7 @@ export default new Router({
     },
     {
       path: "/student/curso/:id",
-      name: "curso",
+      name: "cursoStudent",
       components: {
         default: cursoStudent,
         sidebar: SideBar,

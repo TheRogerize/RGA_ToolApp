@@ -24,7 +24,6 @@
               <label for>Nombre de la universidad</label>
               <base-input
                 name="name"
-                id="name"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -45,7 +44,6 @@
               <label for>Siglas</label>
               <base-input
                 name="siglas"
-                id="siglas"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -67,7 +65,6 @@
               <label for>Historia</label>
               <base-input
                 name="historia"
-                id="historia"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -89,7 +86,6 @@
               <label for>Misión</label>
               <base-input
                 name="mision"
-                id="mision"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -111,7 +107,6 @@
               <label for>Visión</label>
               <base-input
                 name="vision"
-                id="vision"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -133,7 +128,6 @@
               <label for>Metas</label>
               <base-input
                 name="metas"
-                id="metas"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -155,7 +149,6 @@
               <label for>Correo electrónico</label>
               <base-input
                 name="email"
-                id="email"
                 alternative
                 class="mb-2 field"
                 :class="{'is-invalid':$v.newUniversity.email.$error, 'is-valid':!$v.newUniversity.email.$invalid}"
@@ -179,7 +172,6 @@
                 placeholder="Contraseña"
                 type="password"
                 name="password"
-                id="password"
                 v-model.trim="$v.newUniversity.password.$model"
                 @input="$v.newUniversity.password.$touch()"
                 @blur="$v.newUniversity.password.$touch()"
@@ -192,7 +184,6 @@
               <label for="phone">Numero Telefonico</label>
               <base-input
                 name="phone"
-                id="phone"
                 alternative
                 class="mb-2 field"
                 :class="{'is-invalid':$v.newUniversity.phone.$error, 'is-valid':!$v.newUniversity.phone.$invalid}"
@@ -253,7 +244,6 @@
               <label for>Nombre de la universidad</label>
               <base-input
                 name="name"
-                id="editname"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -274,7 +264,6 @@
               <label for>Historia</label>
               <base-input
                 name="historia"
-                id="edithistoria"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -296,7 +285,6 @@
               <label for>Misión</label>
               <base-input
                 name="mision"
-                id="editmision"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -318,7 +306,6 @@
               <label for>Visión</label>
               <base-input
                 name="vision"
-                id="editvision"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -340,7 +327,6 @@
               <label for>Metas</label>
               <base-input
                 name="metas"
-                id="editmetas"
                 type="text"
                 alternative
                 class="mb-2 field"

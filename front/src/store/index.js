@@ -10,18 +10,16 @@ import user from "./user/user";
 import chat from "./chat/chat";
 import classroom from "./classroom/classroom";
 import prof from "./profesor/profesor";
-const axios = require("./axios");
-
 Vue.use(Vuex);
-Vue.use(axios, VueAxios, VueResource);
+Vue.use(VueAxios, VueResource);
 Vue.use(Vuelidate);
 Vue.config.productionTip = false;
-Vue.prototype.$http = axios;
 
 export default new Vuex.Store({
   modules: {
     admin,
     univ,
+    user,
     coord,
     chat,
     classroom,

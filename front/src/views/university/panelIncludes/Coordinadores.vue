@@ -24,7 +24,6 @@
               <label for="name">Nombre del Coordinador</label>
               <base-input
                 name="name"
-                id="name"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -45,7 +44,6 @@
               <label for="lastname">Apellido</label>
               <base-input
                 name="lastname"
-                id="lastname"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -66,7 +64,6 @@
               <label for="cargo">Cargo</label>
               <base-input
                 name="cargo"
-                id="cargo"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -87,7 +84,6 @@
               <label for="cargo">Carnet</label>
               <base-input
                 name="carnet"
-                id="carnet"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -109,7 +105,6 @@
               <label for="email">Correo electrónico</label>
               <base-input
                 name="email"
-                id="email"
                 alternative
                 class="mb-2 field"
                 :class="{'is-invalid':$v.newCoor.email.$error, 'is-valid':!$v.newCoor.email.$invalid}"
@@ -133,7 +128,6 @@
                 placeholder="Contraseña"
                 type="password"
                 name="password"
-                id="password"
                 v-model.trim="$v.newCoor.password.$model"
                 @input="$v.newCoor.password.$touch()"
                 @blur="$v.newCoor.password.$touch()"
@@ -146,7 +140,6 @@
               <label for="phone">Numero Telefonico</label>
               <base-input
                 name="phone"
-                id="phone"
                 alternative
                 class="mb-2 field"
                 :class="{'is-invalid':$v.newCoor.phone.$error, 'is-valid':!$v.newCoor.phone.$invalid}"
@@ -208,7 +201,6 @@
               <label for>Cargo</label>
               <base-input
                 name="cargo"
-                id="editcargo"
                 type="text"
                 alternative
                 class="mb-2 field"

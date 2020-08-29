@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar" style="z-index: 5;" :style="sideBar ? mySidebar : sideClose">
+  <div class="sidebar" style="z-index: 5;" :style="sideBar ? sideBarOpened : sideBarClosed">
     <div class="sideBWrapper">
       <div class="sideLogo">
         <img class="sideBLogo" src="../../assets/logos/RGA.svg" alt />
@@ -51,6 +51,12 @@ export default {
   props: ["sideBar"],
   data() {
     return {
+      sideBarOpened: {
+        transform: "translateX(0%)",
+      },
+      sideBarClosed: {
+        transform: "translateX(-100%)",
+      },
       myInfo: {},
       username: "",
 
@@ -132,20 +138,13 @@ export default {
           link: "/cursos",
           permiso: 3,
         },
-        {
-          title: "Tareas",
-          icon: "tareas",
-          class: "",
-          link: "/tareas",
-          permiso: 3,
-        },
-        {
-          title: "Mensajes",
-          icon: "mensajes",
-          class: "",
-          link: "/chat/mensajes",
-          permiso: 3,
-        },
+        // {
+        //   title: "Mensajes",
+        //   icon: "mensajes",
+        //   class: "",
+        //   link: "/chat/mensajes",
+        //   permiso: 3,
+        // },
         {
           title: "Salir",
           icon: "cerrarsesion",
@@ -170,13 +169,13 @@ export default {
           permiso: 4,
         },
         //{title: 'Tareas', icon: 'tareas', class: '', link:'/student/tareas', permiso: 4},
-        {
-          title: "Mensajes",
-          icon: "mensajes",
-          class: "",
-          link: "/chat/mensajes",
-          permiso: 4,
-        },
+        // {
+        //   title: "Mensajes",
+        //   icon: "mensajes",
+        //   class: "",
+        //   link: "/chat/mensajes",
+        //   permiso: 4,
+        // },
         {
           title: "Salir",
           icon: "cerrarsesion",
@@ -184,17 +183,7 @@ export default {
           link: "/logout",
           permiso: 4,
         },
-      ],
-      mainStyle: {
-        marginLeft: "23%",
-        width: "23%",
-      },
-      mySideBar: {
-        transform: "translateX(100%)",
-      },
-      sideClose: {
-        transform: "translateX(-100%)",
-      },
+      ]
     };
   },
   created() {

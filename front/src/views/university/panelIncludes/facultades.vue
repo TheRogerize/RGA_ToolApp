@@ -25,7 +25,6 @@
               <label for="name">Nombre de la Facultad</label>
               <base-input
                 name="name"
-                id="name"
                 type="text"
                 alternative
                 class="mb-2 field"

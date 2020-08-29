@@ -1,6 +1,5 @@
 <template>
   <section class="adminDashboard">
-    <div class="menu" @click="open">Menu</div>
     <div class="cardCounts">
       <div class="card">
         <div class="color shadowRed">
@@ -75,28 +74,18 @@ import Tabs from "@/components/Tabs/Tabs.vue";
 import TabPane from "@/components/Tabs/TabPane.vue";
 import Universities from "@/views/admin/adminIncludes/universities.vue";
 import Teachers from "@/views/admin/adminIncludes/teachers.vue";
-
 export default {
-  data() {
-    return {
-      sideBar: false,
-    };
-  },
+
 
   created() {},
 
-  methods: {
-    open() {
-      this.sideBar = !this.sideBar;
-      eventBus.toggleState(this.sideBar);
-    },
-  },
+
   components: {
     Modal,
     Tabs,
     TabPane,
     Universities,
-    Teachers,
+    Teachers
   },
 };
 </script>

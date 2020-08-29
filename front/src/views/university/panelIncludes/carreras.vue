@@ -23,7 +23,6 @@
               <label for>Nombre de la universidad</label>
               <base-input
                 name="name"
-                id="name"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -44,7 +43,6 @@
               <label for>Siglas</label>
               <base-input
                 name="siglas"
-                id="siglas"
                 type="text"
                 alternative
                 class="mb-2 field"
@@ -66,7 +64,6 @@
               <label for>Correo electrónico</label>
               <base-input
                 name="email"
-                id="email"
                 alternative
                 class="mb-2 field"
                 :class="{'is-invalid':$v.newUniversity.email.$error, 'is-valid':!$v.newUniversity.email.$invalid}"
@@ -85,7 +82,6 @@
               <label for>Numero Telefonico</label>
               <base-input
                 name="phone"
-                id="phone"
                 alternative
                 class="mb-2 field"
                 :class="{'is-invalid':$v.newUniversity.phone.$error, 'is-valid':!$v.newUniversity.phone.$invalid}"

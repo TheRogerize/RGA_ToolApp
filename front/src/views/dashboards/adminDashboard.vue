@@ -62,12 +62,7 @@ export default {
     },
   },
 
-  methods: {
-    open() {
-      this.sideBar = !this.sideBar;
-      eventBus.toggleState(this.sideBar);
-    },
-  },
+
   components: {
     Modal,
     Tabs,

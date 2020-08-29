@@ -6,7 +6,7 @@
         <div class="toggleIt" :style="toggleSide ? toggleSidebar_open : toggleSidebar_close "></div>
         <div class="mainTemplate">
           <router-view name="header"></router-view>
-          <sideButton></sideButton>
+          <sideButton v-if="isLoggedIn"></sideButton>
           <fade-transition origin="center" mode="out-in" :duration="250">
             <router-view />
           </fade-transition>
@@ -41,12 +41,7 @@ export default {
       },
     };
   },
-  methods: {
-    open() {
-      this.sideBar = !this.sideBar;
-      eventBus.toggleState(this.sideBar);
-    },
-  },
+
   computed: {
     isLoggedIn() {
       this.toggleSide = false;
@@ -57,7 +52,6 @@ export default {
       return this.$store.getters["user/componentSide"];
     },
   },
-  mounted() {},
   created() {
     eventBus.$on("toggleState", (toggle) => {
       this.toggleSide = toggle;

@@ -1,8 +1,7 @@
 import Vue from "vue";
 import router from "../../router";
 import Cookies from "../../utils/Cookies";
-const axios = require('../axios');
-Vue.prototype.$http = axios;
+import axios from "../axios";
 
 
 const user = {

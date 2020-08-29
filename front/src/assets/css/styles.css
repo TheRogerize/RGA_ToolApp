@@ -1,8 +1,37 @@
 .menu {
     position: absolute;
-    top:25px;
+    top:10px;
     left:25px;
     cursor: pointer;
+    z-index:2;
+}
+.menu .menuButton {
+  position: relative;
+  text-align: center;
+  padding: auto;
+  width: 40px;
+  height:40px;
+  border-radius:100%;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  display: flex;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+.menu .menuButton i {
+  font-size: 25px;
+  padding: auto;
+  margin: auto;
+  color: #51e49a;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+.menu .menuButton.actived {
+  background-color:#51e49a;
+}
+.menu .menuButton.actived i {
+  color:white;
 }
 .wrapperEll {
     position: relative;
@@ -27,6 +56,7 @@
 }
 .sidebar {
     position: fixed;
+    overflow-y: auto;
     width:23%;
     min-height:100%;
     max-height:100%;

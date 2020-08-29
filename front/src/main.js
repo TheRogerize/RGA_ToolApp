@@ -18,15 +18,14 @@ window.socket = socket
 window.current_room = ""
 
 Vue.use(circular);
-Vue.use({
-  install (Vue) {
-    Vue.prototype.$api = axios
-  }
-})
+ Vue.use({
+   install (Vue) {
+     Vue.prototype.$api = axios
+   }
+ })
 Vue.use(VueAwesomeSwiper);
 Vue.use(require('vue-moment'));
-Vue.use(Argon, VueAxios, axios, Vuelidate);
-Vue.prototype.$http = axios;
+Vue.use(Argon, VueAxios, Vuelidate);
 export const eventBus = new Vue ({
   data: {
     toggleData: false
@@ -137,7 +136,6 @@ router.beforeEach((to, from, next) => {
 new Vue({
   router,
   store,
-  axios,
   validations: {},
   render: h => h(App)
 }).$mount("#app");

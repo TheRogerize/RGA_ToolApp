@@ -1,6 +1,5 @@
 <template>
-  <section class="adminDashboard" >
-    <div class="menu" @click="open">Menu</div>
+  <section class="adminDashboard">
     <div class="cardCounts">
       <div class="card">
         <div class="color shadowRed">
@@ -24,27 +23,24 @@
       </div>
     </div>
 
-      <div class="row justify-content-center">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 mt-5 mt-lg-0">
+        <!-- Menu -->
 
-    <div class="col-lg-12 mt-5 mt-lg-0">
-      <!-- Menu -->
- 
-      <tabs fill class="flex-column flex-md-row">
-        <card shadow>
-          <tab-pane title="Coordinadores">
-          <coordinadores></coordinadores>
-          </tab-pane>
+        <tabs fill class="flex-column flex-md-row">
+          <card shadow>
+            <tab-pane title="Coordinadores">
+              <coordinadores></coordinadores>
+            </tab-pane>
 
-          <tab-pane title="Facultades">
-          <facultades></facultades>
-          </tab-pane>
-
-        </card>
-      </tabs>
+            <tab-pane title="Facultades">
+              <facultades></facultades>
+            </tab-pane>
+          </card>
+        </tabs>
+      </div>
     </div>
-  </div>
   </section>
-  
 </template>
 <script>
 import {
@@ -52,7 +48,7 @@ import {
   minLength,
   maxLength,
   email,
-  numeric
+  numeric,
 } from "vuelidate/lib/validators";
 import { mapState } from "vuex";
 import { eventBus } from "../../main";
@@ -61,16 +57,8 @@ import Tabs from "@/components/Tabs/Tabs.vue";
 import TabPane from "@/components/Tabs/TabPane.vue";
 import coordinadores from "@/views/university/panelIncludes/Coordinadores.vue";
 import facultades from "@/views/university/panelIncludes/facultades.vue";
-    
 
 export default {
-  data() {
-    return {
-      sideBar: false,
-    };
-  },
-
-
   computed: {
     coordinadores() {
       let coordinadores = this.$store.getters["univ/getCoordinadores"];
@@ -82,19 +70,13 @@ export default {
     },
   },
 
-  methods: {
-    open() {
-      this.sideBar = !this.sideBar;
-      eventBus.toggleState(this.sideBar);
-    }
-  },
   components: {
     Modal,
     Tabs,
     TabPane,
     facultades,
     coordinadores
-  }
+  },
 };
 </script>
 

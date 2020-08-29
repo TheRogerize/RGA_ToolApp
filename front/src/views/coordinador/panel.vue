@@ -1,6 +1,5 @@
 <template>
   <section class="adminDashboard">
-    <div class="menu" @click="open">Menu</div>
     <div class="cardCounts">
       <div class="card">
         <div class="color shadowRed">
@@ -73,11 +72,6 @@ import contenidos from "@/views/coordinador/panelIncludes/Contenidos.vue";
 import cursos from "@/views/coordinador/panelIncludes/Cursos.vue";
 
 export default {
-  data() {
-    return {
-      sideBar: false,
-    };
-  },
   computed: {
     profesores() {
       let profesores = this.$store.getters["coord/getProfesores"];
@@ -91,21 +85,17 @@ export default {
       let cursos = this.$store.getters["coord/getCursos"];
       return cursos;
     },
+
   },
 
-  methods: {
-    open() {
-      this.sideBar = !this.sideBar;
-      eventBus.toggleState(this.sideBar);
-    },
-  },
+
   components: {
     Modal,
     Tabs,
     TabPane,
     profesores,
     contenidos,
-    cursos,
+    cursos
   },
 };
 </script>

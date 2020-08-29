@@ -1,7 +1,7 @@
 import "../assets/vendor/nucleo/css/nucleo.css";
 import "../assets/vendor/font-awesome/css/font-awesome.css";
 import "../assets/scss/argon.scss";
-import "../assets/css/styles.min.css";
+import "../assets/css/styles.css";
 import globalComponents from "./globalComponents";
 import globalDirectives from "./globalDirectives";
 import VueLazyload from "vue-lazyload";

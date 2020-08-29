@@ -29,6 +29,7 @@
 }
 .menu .menuButton.actived {
   background-color:#51e49a;
+  transform: rotate(180deg);
 }
 .menu .menuButton.actived i {
   color:white;

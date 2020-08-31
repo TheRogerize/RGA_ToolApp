@@ -1,9 +1,9 @@
 import Vue from "vue";
 import router from "../../router";
 import Cookies from "../../utils/Cookies";
-import axios from "../axios";
-
-
+// import axios from "../axios";
+const {axiosInstance} = require("../axios");
+const axios = axiosInstance;
 const user = {
   namespaced: true,
   state: {

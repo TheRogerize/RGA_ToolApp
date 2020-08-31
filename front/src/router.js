@@ -3,7 +3,6 @@ import Router from "vue-router";
 import SideBar from "./layout/logged/sidebar";
 import Landing from "./views/Landing.vue";
 import Login from "./views/Login.vue";
-import reset from "./views/reset.vue";
 import forgot from "./views/forgot.vue";
 import Logout from "./layout/logged/logout";
 import Register from "./views/Register.vue";
@@ -52,14 +51,6 @@ export default new Router({
       path: "/recuperar",
       name: "forgotPassword",
       component: forgot,
-      meta: {
-        requiresVisitor: true
-      }
-    },
-    {
-      path: "/recuperar_contraseña",
-      name: "reset",
-      component: reset,
       meta: {
         requiresVisitor: true
       }

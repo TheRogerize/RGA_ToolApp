@@ -1,29 +1,10 @@
 <template>
-  <div class="outContainer">
-    <div class="welcomeMsg">
-      <h2 style="font-size:40px;">Hora de crear tu nueva contraseña!</h2>
-    </div>
-    <div class="leftSide">
-      <a href="#">
-        <img class="logo" src="../assets/images/RGA_logo_icon_gray.svg" alt="RGA Icon" />
-      </a>
-      <div class="left">
-        <p>¡Ingresa nueva contraseña y podrás continuar haciendo uso de la mejor herramienta!</p>
+  <div class="wrapper">
+    <div class="mob_container">
+      <mobileNavbar></mobileNavbar>
+      <div class="welcomeMsg">
+        <h2>¡Hora de crear tu nueva contraseña!</h2>
       </div>
-      <div class="social-network">
-        <a href="#">
-          <i class="fab fa-twitter pb"></i>
-        </a>
-        <a href="#">
-          <i class="fab fa-facebook-f pb"></i>
-        </a>
-        <a href="#">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
-    </div>
-    <div class="rightSide">
-      <navbar />
       <div class="loginWrapp">
         <div class="wrapper">
           <form form @submit.prevent="resetPassForm">
@@ -37,7 +18,6 @@
                   class="loginInput"
                   :class="{'is-invalid':$v.reestablecer.clave.$error, 'is-valid':!$v.reestablecer.clave.$invalid}"
                   type="password"
-                  id="passwrod"
                   placeholder="Contraseña"
                   v-model="$v.reestablecer.clave.$model"
                   @input="$v.reestablecer.clave.$touch()"
@@ -69,7 +49,6 @@
                   :class="{'is-invalid':$v.reestablecer.confirmar_clave.$error, 'is-valid':!$v.reestablecer.confirmar_clave.$invalid}"
                   type="password"
                   name="confirmar_clave"
-                  id="confirmar_clave"
                   placeholder="Confirmar contraseña"
                   v-model="$v.reestablecer.confirmar_clave.$model"
                   @input="$v.reestablecer.confirmar_clave.$touch()"
@@ -110,16 +89,131 @@
           </form>
         </div>
       </div>
+      <mobFooter></mobFooter>
+    </div>
+    <div class="outContainer">
+      <div class="welcomeMsg">
+        <h2 style="font-size:40px;">¡Hora de crear tu nueva contraseña!</h2>
+      </div>
+      <div class="leftSide">
+        <a href="#">
+          <img class="logo" src="../assets/images/RGA_logo_icon_gray.svg" alt="RGA Icon" />
+        </a>
+        <div class="left">
+          <p>¡Ingresa nueva contraseña y podrás continuar haciendo uso de la mejor herramienta!</p>
+        </div>
+        <div class="social-network">
+          <a href="#">
+            <i class="fab fa-twitter pb"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-facebook-f pb"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      <div class="rightSide">
+        <navbar />
+        <div class="loginWrapp">
+          <div class="wrapper">
+            <form form @submit.prevent="resetPassForm">
+              <div class="loginBox">
+                <h3 class="loginHead">Ingresa tu nueva contraseña!</h3>
 
-      <div class="footer">
-        <small>©2020 RGA Education, C.A. Todos los derechos reservados.</small>
-        <img class="logo-text" src="../assets/images/RGA_logo_gray_text.svg" alt="RGA Logo" />
+                <div class="wrapper mb-4">
+                  <input type="hidden" name="correo" v-model="$v.reestablecer.correo.$model" />
+                  <input
+                    type="hidden"
+                    name="resettoken"
+                    v-model="$v.reestablecer.resettoken.$model"
+                  />
+                  <input
+                    class="loginInput"
+                    :class="{'is-invalid':$v.reestablecer.clave.$error, 'is-valid':!$v.reestablecer.clave.$invalid}"
+                    type="password"
+                    placeholder="Contraseña"
+                    v-model="$v.reestablecer.clave.$model"
+                    @input="$v.reestablecer.clave.$touch()"
+                    @blur="$v.reestablecer.clave.$touch()"
+                    maxlength="61"
+                    autocomplete="off"
+                  />
+                  <div
+                    class="invalid-input is-absolute"
+                    style="bottom: -20px;"
+                    v-if="$v.reestablecer.clave.$dirty"
+                  >
+                    <span
+                      v-if="!$v.reestablecer.clave.minLength"
+                    >La contraseña debe poseer al menos 6 caracteres</span>
+                    <span
+                      v-if="!$v.reestablecer.clave.maxLength"
+                    >La contraseña debe poseer maximo 60 caracteres</span>
+                    <div v-if="$v.reestablecer.clave.minLength && $v.reestablecer.clave.maxLength">
+                      <span
+                        v-if="!$v.reestablecer.clave.strongPassword"
+                      >La contraseña debe poseer números, simbolos, letras minusculas y mayusculas</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="wrapper">
+                  <input
+                    class="loginInput"
+                    :class="{'is-invalid':$v.reestablecer.confirmar_clave.$error, 'is-valid':!$v.reestablecer.confirmar_clave.$invalid}"
+                    type="password"
+                    name="confirmar_clave"
+                    placeholder="Confirmar contraseña"
+                    v-model="$v.reestablecer.confirmar_clave.$model"
+                    @input="$v.reestablecer.confirmar_clave.$touch()"
+                    @blur="$v.reestablecer.confirmar_clave.$touch()"
+                    maxlength="61"
+                    autocomplete="off"
+                  />
+                  <div class="invalid-input is-absolute" v-if="$v.reestablecer.clave.$dirty">
+                    <span v-if="!$v.reestablecer.clave.required">Debes ingresar tu contraseña</span>
+                    <div v-else>
+                      <span
+                        v-if="!$v.reestablecer.confirmar_clave.required"
+                      >Debes confirmar tu contraseña</span>
+                    </div>
+                    <div v-if="$v.reestablecer.confirmar_clave.required">
+                      <span
+                        v-if="!$v.reestablecer.confirmar_clave.sameAsPassword"
+                      >Las contraseñas deben coincidir</span>
+                    </div>
+                    <div class="invalid-input" v-if="success">
+                      <span class="validMsg">{{successMsg}}</span>
+                    </div>
+                    <div class="invalid-input" v-if="unauth">
+                      <span>{{serverError}}</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="invalid-input">
+                  <transition name="fade">
+                    <span v-if="unauth">{{serverError}}</span>
+                    <span class="validMsg" v-if="auth">{{authMsg}}</span>
+                  </transition>
+                </div>
+              </div>
+              <div class="loginButton">
+                <a @click="resetPassForm" class="my-4">Crear contraseña</a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <Footer></Footer>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import mobileNavbar from "../layout/mobileNavbar";
+import mobFooter from "../layout/mobileFooter";
+import footer from "../layout/AppFooter";
 import navbar from "../layout/unloggedNavbar";
 import Cookies from "../utils/Cookies";
 import router from "../router.js";
@@ -250,6 +344,9 @@ export default {
   },
   components: {
     navbar,
+    Footer: footer,
+    mobileNavbar,
+    mobFooter,
   },
 };
 </script>

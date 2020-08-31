@@ -5,7 +5,7 @@ import store from "./store";
 import { sync } from "vuex-router-sync";
 import Argon from "./plugins/argon-kit";
 import Vuelidate from "vuelidate";
-import axios from "./store/axios";
+import {axiosInstance} from "./store/axios";
 import VueAxios from 'vue-axios';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
 import 'swiper/css/swiper.css';
@@ -20,7 +20,7 @@ window.current_room = ""
 Vue.use(circular);
  Vue.use({
    install (Vue) {
-     Vue.prototype.$api = axios
+     Vue.prototype.$api = axiosInstance
    }
  })
 Vue.use(VueAwesomeSwiper);

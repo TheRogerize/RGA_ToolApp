@@ -3,6 +3,7 @@
     <div class="primaryWrapper">
       <main>
         <side-bar v-if="isLoggedIn" :sideBar="toggleSide" :key="componentSide"></side-bar>
+
         <div class="toggleIt" :style="toggleSide ? toggleSidebar_open : toggleSidebar_close "></div>
         <div class="mainTemplate">
           <router-view name="header"></router-view>
@@ -59,11 +60,3 @@ export default {
   },
 };
 </script>
-
-<style >
-.toggleIt {
-  position: relative;
-  height: 100vh;
-  transition: 0.7s;
-}
-</style>

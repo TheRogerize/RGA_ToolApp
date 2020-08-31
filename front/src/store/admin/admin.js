@@ -1,5 +1,6 @@
 import Vue from "vue";
-const axios = require('../axios');
+const {axiosInstance} = require("../axios");
+const axios = axiosInstance;
 Vue.prototype.$http = axios;
 
 const admin = {

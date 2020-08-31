@@ -1,7 +1,8 @@
 import Vue from "vue";
 import Cookies from "../../utils/Cookies";
+const {axiosInstance} = require("../axios");
+const axios = axiosInstance;
 Vue.prototype.$http = axios;
-const axios = require('../axios');
 
 
 const coord = {

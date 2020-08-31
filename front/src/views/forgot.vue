@@ -1,78 +1,122 @@
 <template>
-  <div class="outContainer">
-    <div class="welcomeMsg">
-      <h2 style="font-size: 40px;">¿Olvidaste tu contraseña?</h2>
-    </div>
-    <div class="leftSide">
-      <a href="#">
-        <img class="logo" src="../assets/images/RGA_logo_icon_gray.svg" alt="RGA Icon" />
-      </a>
-      <div class="left">
-        <p>¡Ingresa tu correo electrónico y recibiras un enlace de recuperación de contraseña!</p>
+  <div class="wrapper">
+    <div class="mob_container">
+      <mobileNavbar></mobileNavbar>
+      <div class="welcomeMsg">
+        <h2>¿Olvidaste tu contraseña?</h2>
       </div>
-      <div class="social-network">
-        <a href="#">
-          <i class="fab fa-twitter pb"></i>
-        </a>
-        <a href="#">
-          <i class="fab fa-facebook-f pb"></i>
-        </a>
-        <a href="#">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
-    </div>
-    <div class="rightSide">
-      <navbar />
-      <div class="loginWrapp">
-        <div class="wrapper">
-          <form form @submit.prevent="enviarEnlace">
-            <div class="loginBox" style="padding-bottom: 50px;">
-              <h3
-                class="loginHead"
-                style="color: #3ab376;"
-              >Ingresa tu correo para recibir tu enlace de recuperación</h3>
-              <div class="wrapper">
-                <input
-                  class="loginInput"
-                  :class="{'is-invalid':$v.user.correo.$error, 'is-valid':!$v.user.correo.$invalid}"
-                  type="email"
-                  id="email"
-                  placeholder="Correo Electrónico"
-                  v-model.trim="$v.user.correo.$model"
-                  @input="$v.user.correo.$touch()"
-                  @blur="$v.user.correo.$touch()"
-                />
-                <div class="invalid-input is-absolute" v-if="$v.user.correo.$dirty">
-                  <span v-if="!$v.user.correo.required">Debes ingresar un correo</span>
-                  <span v-if="!$v.user.correo.email">Debes ingresar un correo válido</span>
+              <div class="loginWrapp">
+          <div class="wrapper">
+            <form form @submit.prevent="enviarEnlace">
+              <div class="loginBox" style="padding-bottom: 50px;">
+                <h3
+                  class="loginHead"
+                  style="color: #3ab376;"
+                >Ingresa tu correo para recibir tu enlace de recuperación</h3>
+                <div class="wrapper">
+                  <input
+                    class="loginInput"
+                    :class="{'is-invalid':$v.user.correo.$error, 'is-valid':!$v.user.correo.$invalid}"
+                    type="email"
+                    placeholder="Correo Electrónico"
+                    v-model.trim="$v.user.correo.$model"
+                    @input="$v.user.correo.$touch()"
+                    @blur="$v.user.correo.$touch()"
+                  />
+                  <div class="invalid-input is-absolute" v-if="$v.user.correo.$dirty">
+                    <span v-if="!$v.user.correo.required">Debes ingresar un correo</span>
+                    <span v-if="!$v.user.correo.email">Debes ingresar un correo válido</span>
+                  </div>
+                </div>
+
+                <div class="invalid-input">
+                  <transition name="fade">
+                    <span v-if="unauth">{{serverError}}</span>
+                    <span class="validMsg" v-if="auth">{{authMsg}}</span>
+                  </transition>
                 </div>
               </div>
-
-              <div class="invalid-input">
-                <transition name="fade">
-                  <span v-if="unauth">{{serverError}}</span>
-                  <span class="validMsg" v-if="auth">{{authMsg}}</span>
-                </transition>
+              <div class="loginButton">
+                <a @click="enviarEnlace" class="my-4">Enviar enlace</a>
               </div>
-            </div>
-            <div class="loginButton">
-              <a @click="enviarEnlace" class="my-4">Enviar enlace</a>
-            </div>
-          </form>
+            </form>
+          </div>
+        </div>
+      <mobFooter></mobFooter>
+    </div>
+
+    <div class="outContainer">
+      <div class="welcomeMsg">
+        <h2 style="font-size: 40px;">¿Olvidaste tu contraseña?</h2>
+      </div>
+      <div class="leftSide">
+        <a href="#">
+          <img class="logo" src="../assets/images/RGA_logo_icon_gray.svg" alt="RGA Icon" />
+        </a>
+        <div class="left">
+          <p>¡Ingresa tu correo electrónico y recibiras un enlace de recuperación de contraseña!</p>
+        </div>
+        <div class="social-network">
+          <a href="#">
+            <i class="fab fa-twitter pb"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-facebook-f pb"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
         </div>
       </div>
-
-      <div class="footer">
-        <small>©2020 RGA Education, C.A. Todos los derechos reservados.</small>
-        <img class="logo-text" src="../assets/images/RGA_logo_gray_text.svg" alt="RGA Logo" />
+      <div class="rightSide">
+        <navbar />
+        <div class="loginWrapp">
+          <div class="wrapper">
+            <form form @submit.prevent="enviarEnlace">
+              <div class="loginBox" style="padding-bottom: 50px;">
+                <h3
+                  class="loginHead"
+                  style="color: #3ab376;"
+                >Ingresa tu correo para recibir tu enlace de recuperación</h3>
+                <div class="wrapper">
+                  <input
+                    class="loginInput"
+                    :class="{'is-invalid':$v.user.correo.$error, 'is-valid':!$v.user.correo.$invalid}"
+                    type="email"
+                    placeholder="Correo Electrónico"
+                    v-model.trim="$v.user.correo.$model"
+                    @input="$v.user.correo.$touch()"
+                    @blur="$v.user.correo.$touch()"
+                  />
+                  <div class="invalid-input is-absolute" v-if="$v.user.correo.$dirty">
+                    <span v-if="!$v.user.correo.required">Debes ingresar un correo</span>
+                    <span v-if="!$v.user.correo.email">Debes ingresar un correo válido</span>
+                  </div>
+                </div>
+                <div class="invalid-input">
+                  <transition name="fade">
+                    <span v-if="unauth">{{serverError}}</span>
+                    <span class="validMsg" v-if="auth">{{authMsg}}</span>
+                  </transition>
+                </div>
+              </div>
+              <div class="loginButton">
+                <a @click="enviarEnlace" class="my-4">Enviar enlace</a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <Footer></Footer>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import footer from "../layout/AppFooter";
 import navbar from "../layout/unloggedNavbar";
+import mobileNavbar from "../layout/mobileNavbar";
+import mobFooter from "../layout/mobileFooter";
 import Cookies from "../utils/Cookies";
 import router from "../router.js";
 import { mapState } from "vuex";
@@ -158,6 +202,9 @@ export default {
   },
   components: {
     navbar,
+    Footer: footer,
+    mobileNavbar,
+    mobFooter,
   },
 };
 </script>

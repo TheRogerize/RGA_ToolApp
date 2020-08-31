@@ -1,29 +1,10 @@
 <template>
-  <div class="outContainer">
-    <div class="welcomeMsg">
-      <h2>¡Te extrañabamos!</h2>
-    </div>
-    <div class="leftSide">
-      <a href="#">
-        <img class="logo" src="../assets/images/RGA_logo_icon_gray.svg" alt="RGA Icon" />
-      </a>
-      <div class="left">
-        <p>¡Ingresa con tu usuario y contraseña para hacer uso de la mejor herramienta académica!</p>
+  <div class="wrapper">
+    <div class="mob_container">
+      <mobileNavbar></mobileNavbar>
+      <div class="welcomeMsg">
+        <h2>¡Te extrañabamos!</h2>
       </div>
-      <div class="social-network">
-        <a href="#">
-          <i class="fab fa-twitter pb"></i>
-        </a>
-        <a href="#">
-          <i class="fab fa-facebook-f pb"></i>
-        </a>
-        <a href="#">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
-    </div>
-    <div class="rightSide">
-      <navbar />
       <div class="loginWrapp">
         <div class="wrapper">
           <form form @submit.prevent="submitForm">
@@ -34,7 +15,6 @@
                   class="loginInput"
                   :class="{'is-invalid':$v.user.email.$error, 'is-valid':!$v.user.email.$invalid}"
                   type="email"
-                  id="email"
                   placeholder="Correo Electrónico"
                   v-model.trim="$v.user.email.$model"
                   @input="$v.user.email.$touch()"
@@ -51,7 +31,6 @@
                   :class="{'is-invalid':$v.user.password.$error, 'is-valid':!$v.user.password.$invalid}"
                   type="password"
                   autocomplete="off"
-                  id="passwrod"
                   placeholder="Contraseña"
                   v-model="$v.user.password.$model"
                   @input="$v.user.password.$touch()"
@@ -79,10 +58,88 @@
           </form>
         </div>
       </div>
+      <mobFooter></mobFooter>
+    </div>
 
-      <div class="footer">
-        <small>©2020 RGA Education, C.A. Todos los derechos reservados.</small>
-        <img class="logo-text" src="../assets/images/RGA_logo_gray_text.svg" alt="RGA Logo" />
+    <div class="outContainer">
+      <div class="welcomeMsg">
+        <h2>¡Te extrañabamos!</h2>
+      </div>
+      <div class="leftSide">
+        <a href="#">
+          <img class="logo" src="../assets/images/RGA_logo_icon_gray.svg" alt="RGA Icon" />
+        </a>
+        <div class="left">
+          <p>¡Ingresa con tu usuario y contraseña para hacer uso de la mejor herramienta académica!</p>
+        </div>
+        <div class="social-network">
+          <a href="#">
+            <i class="fab fa-twitter pb"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-facebook-f pb"></i>
+          </a>
+          <a href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      <div class="rightSide">
+        <navbar />
+        <div class="loginWrapp">
+          <div class="wrapper">
+            <form form @submit.prevent="submitForm">
+              <div class="loginBox">
+                <h3 class="loginHead">Ingresa tus datos</h3>
+                <div class="wrapper">
+                  <input
+                    class="loginInput"
+                    :class="{'is-invalid':$v.user.email.$error, 'is-valid':!$v.user.email.$invalid}"
+                    type="email"
+                    placeholder="Correo Electrónico"
+                    v-model.trim="$v.user.email.$model"
+                    @input="$v.user.email.$touch()"
+                    @blur="$v.user.email.$touch()"
+                  />
+                  <div class="invalid-input is-absolute" v-if="$v.user.email.$dirty">
+                    <span v-if="!$v.user.email.required">Debes ingresar un correo</span>
+                    <span v-if="!$v.user.email.email">Debes ingresar un correo valido</span>
+                  </div>
+                </div>
+                <div class="wrapper">
+                  <input
+                    class="loginInput"
+                    :class="{'is-invalid':$v.user.password.$error, 'is-valid':!$v.user.password.$invalid}"
+                    type="password"
+                    autocomplete="off"
+                    placeholder="Contraseña"
+                    v-model="$v.user.password.$model"
+                    @input="$v.user.password.$touch()"
+                    @blur="$v.user.password.$touch()"
+                  />
+                  <div class="invalid-input is-absolute" v-if="$v.user.password.$dirty">
+                    <span v-if="!$v.user.password.required">Debes ingresar tu contraseña</span>
+                  </div>
+                </div>
+                <div class="invalid-input">
+                  <transition name="fade">
+                    <span v-if="unauth">{{serverError}}</span>
+                    <span class="validMsg" v-if="auth">{{authMsg}}</span>
+                  </transition>
+                </div>
+                <div class="forgotPassLink">
+                  <router-link to="/recuperar" class="nav-link">
+                    <a>¿Olvidaste tu contraseña?</a>
+                  </router-link>
+                </div>
+              </div>
+              <div class="loginButton">
+                <a @click="submitForm" class="my-4">Iniciar Sesión</a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <Footer></Footer>
       </div>
     </div>
   </div>
@@ -92,6 +149,9 @@
 import navbar from "../layout/unloggedNavbar";
 import Cookies from "../utils/Cookies";
 import router from "../router.js";
+import footer from "../layout/AppFooter";
+import mobileNavbar from "../layout/mobileNavbar";
+import mobFooter from "../layout/mobileFooter";
 import { mapState } from "vuex";
 import {
   required,
@@ -201,6 +261,9 @@ export default {
   },
   components: {
     navbar,
+    Footer: footer,
+    mobileNavbar,
+    mobFooter,
   },
 };
 </script>

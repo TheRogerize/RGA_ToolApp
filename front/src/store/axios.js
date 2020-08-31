@@ -5,5 +5,5 @@
       'Content-Type': 'application/json'
     }
   });
-  module.exports = axiosInstance;
+  export { axiosInstance }
 

@@ -40,11 +40,19 @@
     margin: 0px;
 }
 .wrapper {
-    position: relative;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 }
+
 .primaryWrapper {
     position: relative;
     display: block;
+    box-sizing: border-box;
+    height:100%;
 }
 .secondWrapper {
     display: flex;
@@ -303,19 +311,20 @@
     margin: 20px 0px;
 }
 
-.outContainer {
+@media only screen and (min-width: 1101px) {
+    .outContainer {
     position: relative;
     width: 100%;
-	min-height: 100vh;
-	max-height: 100vh;
+  	min-height: 100vh;
+  	max-height: 100vh;
     margin: 0px auto;
     padding:0px;
     position: relative;
-	display: grid;
-	grid-template-columns: 32% 68%;
-	grid-template-areas: "leftside rightside";
-}
-.outContainer .welcomeMsg {
+  	display: grid;
+  	grid-template-columns: 32% 68%;
+  	grid-template-areas: "leftside rightside";
+  }
+  .outContainer .welcomeMsg {
     position: absolute;
     top: 15%;
     width:100%;
@@ -331,6 +340,15 @@
     justify-content: center;
     z-index: 5;
 }
+
+}
+
+@media only screen and (max-width: 1100px) {
+  .outContainer {
+    display: none;
+  }
+}
+
 
 @media only screen and (max-width: 1499px) {
     .outContainer .welcomeMsg h2 {
@@ -868,40 +886,453 @@
     transition: all .5s;
 }
 
+/* =========================================================================================================*/
+.mob_container .loginWrapp {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+}
+.mob_container .registerWrapp {
+  position: relative;
+  text-align: center;
+  border-radius: 20px;
+}
+.mob_container .loginWrapp .loginOpts, .mob_container .registerWrapp .loginOpts {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+  grid-template-areas:"a b";
+  align-items: start;
+  margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 1499px) {
+.mob_container .loginWrapp {
+  position: relative;
+  height:300px;
+  width:300px;
+  padding:20px 0px;
+  margin-top: 100px;
+  margin: 150px auto 0px;
+}
+.mob_container .registerWrapp {
+  position: relative;
+  width:300px;
+  padding:20px 0px;
+  margin: 160px auto 0px;
+}
+
+.mob_container .loginWrapp .loginOpts .opt1, .mob_container .registerWrapp .loginOpts .opt1  {
+  position: relative;
+  grid-area: a;
+  height:60px;
+  border-radius:15px;
+  background-color:#fff;
+  -webkit-box-shadow: 0px 0px 20px -6px rgb(190, 188, 188);
+  -moz-box-shadow: 0px 0px 20px -6px rgb(190, 188, 188);
+  box-shadow: 0px 0px 20px -6px rgb(190, 188, 188);
+}
+.mob_container .loginWrapp .loginOpts .opt2,  .mob_container .registerWrapp .loginOpts .opt2 {
+  position: relative;
+  grid-area: b;
+  height:60px;
+  border-radius:15px;
+  background-color:#fff;
+  -webkit-box-shadow: 0px 0px 20px -6px rgb(190, 188, 188);
+  -moz-box-shadow: 0px 0px 20px -6px rgb(190, 188, 188);
+  box-shadow: 0px 0px 20px -6px rgb(190, 188, 188);
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .mob_container .loginWrapp {
+      position: absolute;
+      height:420px;
+      width:400px;
+      padding:10px 0px;
+      left: 10%;
+      top:55%;
+      margin-top: -150px;
+  }
+  .mob_container .registerWrapp {
+      position: absolute;
+      height:420px;
+      width:400px;
+      padding:10px 0px;
+      left: 10%;
+      top:55%;
+      margin-top: -150px;
+  }
+
+  .mob_container .loginWrapp .loginOpts .opt1,  .mob_container .registerWrapp .loginOpts .opt1 {
+      position: relative;
+      grid-area: a;
+      height:70px;
+      border-radius:15px;
+      background-color:#fff;
+      -webkit-box-shadow: 0px 0px 20px -6px rgb(190, 188, 188);
+      -moz-box-shadow: 0px 0px 20px -6px rgb(190, 188, 188);
+      box-shadow: 0px 0px 20px -6px rgb(190, 188, 188);
+  }
+  .mob_container .loginWrapp .loginOpts .opt2,  .mob_container .registerWrapp .loginOpts .opt2 {
+      position: relative;
+      grid-area: b;
+      height:70px;
+      border-radius:15px;
+      background-color:#fff;
+      -webkit-box-shadow: 0px 0px 20px -6px rgb(190, 188, 188);
+      -moz-box-shadow: 0px 0px 20px -6px rgb(190, 188, 188);
+      box-shadow: 0px 0px 20px -6px rgb(190, 188, 188);
+      }
+  }
+
+.mob_container .loginWrapp .loginBox {
+  box-sizing: border-box;
+  position: relative;
+  width:100%;
+  border-radius: 20px;
+  background-color:#fff;
+  text-align: center;
+  -webkit-box-shadow: 0px 6px 15px 5px rgba(217,214,217,1);
+  -moz-box-shadow: 0px 6px 15px 5px rgba(217,214,217,1);
+  box-shadow: 0px 6px 15px 5px rgba(217,214,217,1);
+}
+
+.mob_container .registerWrapp .registerBox {
+  position: relative;
+  width:100%;
+  border-radius: 20px;
+  background-color:#fff;
+  text-align: center;
+  -webkit-box-shadow: 0px 6px 15px 5px rgba(217,214,217,1);
+  -moz-box-shadow: 0px 6px 15px 5px rgba(217,214,217,1);
+  box-shadow: 0px 6px 15px 5px rgba(217,214,217,1);
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1499px) {
+  .mob_container .loginWrapp .loginBox {
+      height: auto;
+      padding:10px 20px 50px;
+  }
+  .mob_container .loginWrapp .loginBox h3.loginHead, .mob_container .registerWrapp .registerBox h3.loginHead {
+      color: rgb(139, 139, 139);
+      font-size:13px;
+      font-weight: 600;
+      margin: 5px 0px 10px;
+  }
+
+  .mob_container .registerWrapp .registerBox {
+      height: auto;
+      padding:10px 20px 40px;
+      box-sizing: border-box;
+  }
+
+  .mob_container .loginWrapp .loginBox .loginInput, .mob_container .registerWrapp .registerBox .loginInput {
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      height: 40px;
+      margin-bottom: 18px;
+      padding: 2px 15px;
+      font-size:13px;
+      font-weight:600;
+      color:rgb(121, 121, 121);
+      width:100%;
+      border:none;
+      outline: none;
+  }
+
+  .mob_container .registerWrapp .registerBox .inputRow {
+      position: relative;
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:"name lastn";
+      align-items: center;
+      width:100%;
+      margin-bottom: 15px;
+      margin:5px 0px;
+      padding:0px;
+  }
+  .mob_container .registerWrapp .registerBox .inputRow .name {
+      grid-area: name;
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      height: 40px;
+      margin-bottom: 18px;
+      padding: 2px 15px;
+      font-size:13px;
+      font-weight:600;
+      color:rgb(121, 121, 121);
+      border:none;
+      outline: none;
+  }
+  .mob_container .registerWrapp .registerBox .inputRow .lastn {
+      grid-area: lastn;
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      height: 40px;
+      margin-bottom: 18px;
+      padding: 2px 15px;
+      font-size:13px;
+      font-weight:600;
+      color:rgb(121, 121, 121);
+      border:none;
+      outline: none;
+  }
+
+  
+  .mob_container .registerWrapp .registerBox .inputCedula {
+      position: relative;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 15% 1fr;
+      grid-template-areas:"name lastn";
+      align-items: center;
+      width:100%;
+      margin-bottom: 15px;
+      margin:5px 0px;
+      padding:0px;
+  }
+  .mob_container .registerWrapp .registerBox .inputCedula select {
+      grid-area: name;
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      height: 40px;
+      margin-bottom: 18px;
+      padding: 2px 15px;
+      font-size:13px;
+      font-weight:600;
+      color:rgb(121, 121, 121);
+      border:none;
+      outline: none;
+  }
+ 
+  .mob_container .registerWrapp .registerBox .inputCedula input {
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      height: 40px;
+      margin-bottom: 18px;
+      padding: 2px 15px;
+      font-size:13px;
+      font-weight:600;
+      color:rgb(121, 121, 121);
+      border:none;
+      outline: none;
+  }
+  
+  
+  .mob_container .loginWrapp .loginButton, .mob_container .registerWrapp .loginButton {
+      position: relative;
+      margin: 30px 20px 0px;
+  }
+  .mob_container .loginWrapp .loginButton a, .mob_container .registerWrapp .loginButton a {
+      border: 0;
+      color: #ffffff;
+      background-color: #51e49a;
+      padding: 15px 20px;
+      border-radius: 30px;
+      font-size: 20px;
+      font-weight: 700;
+      box-shadow: 0 4px 2px rgba(81, 228, 154, 0.8);
+      cursor: pointer;
+      outline: none;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+    .mob_container .registerWrapp .registerBox .inputCedula {
+      position: relative;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 25% 1fr;
+      grid-template-areas:"name lastn";
+      align-items: center;
+      width:100%;
+      margin-bottom: 15px;
+      margin:5px 0px;
+      padding:0px;
+  }
+  .mob_container .registerWrapp .registerBox .inputCedula select {
+      grid-area: name;
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      height: 40px;
+      margin-bottom: 18px;
+      padding: 2px 15px;
+      font-size:13px;
+      font-weight:600;
+      color:rgb(121, 121, 121);
+      border:none;
+      outline: none;
+  }
+  .mob_container .registerWrapp .registerBox .inputCedula input {
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      height: 40px;
+      margin-bottom: 18px;
+      padding: 2px 15px;
+      font-size:13px;
+      font-weight:600;
+      color:rgb(121, 121, 121);
+      border:none;
+      outline: none;
+  }
+
+  .mob_container .loginWrapp .loginBox {
+      min-height: 220px;
+      padding:10px 30px 60px;
+  }
+  .mob_container .registerWrapp .registerBox {
+      min-height: 220px;
+      padding:10px 30px 20px;
+  }
+  .mob_container .loginWrapp .loginBox h3.loginHead, .mob_container .registerWrapp .registerBox h3.loginHead {
+      color: rgb(139, 139, 139);
+      font-size:16px;
+      font-weight: 600;
+      margin: 5px 0px 15px;
+}
+  .mob_container .loginWrapp .loginBox .loginInput, .mob_container .registerWrapp .registerBox .loginInput {
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      height: 47px;
+      margin-bottom: 18px;
+      padding: 2px 15px;
+      font-size:16px;
+      font-weight:600;
+      color:rgb(121, 121, 121);
+      width:100%;
+      border:none;
+      outline: none;
+  }
+
+  
+  .mob_container .registerWrapp .registerBox .inputRow {
+      position: relative;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas:"name lastn";
+      align-items: center;
+      margin-bottom: 15px;
+      margin:5px 0px;
+      padding:0px;
+  }
+  .mob_container .registerWrapp .registerBox .inputRow input.name {
+      grid-area: name;
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      height: 40px;
+      margin-bottom: 18px;
+      padding: 2px 15px;
+      font-size:13px;
+      width: 100%;
+      font-weight:600;
+      color:rgb(121, 121, 121);
+      border:none;
+      outline: none;
+  }
+  .mob_container .registerWrapp .registerBox .inputRow input.lastn {
+      grid-area: lastn;
+      background-color: #f0f0f0;
+      border-radius: 20px;
+      width: 100%;
+      height: 40px;
+      margin-bottom: 18px;
+      padding: 2px 15px;
+      font-size:13px;
+      font-weight:600;
+      color:rgb(121, 121, 121);
+      border:none;
+      outline: none;
+  }
+  
+
+  .mob_container .loginWrapp .loginButton, .mob_container .registerWrapp .loginButton {
+      position: relative;
+      margin: 40px auto 0px;
+  }
+  .mob_container .loginWrapp .loginButton a, .mob_container .registerWrapp .loginButton a {
+      border: 0;
+      color: #ffffff;
+      background-color: #51e49a;
+      padding: 15px 20px;
+      border-radius: 30px;
+      font-size: 20px;
+      font-weight: 700;
+      box-shadow: 0 4px 2px rgba(81, 228, 154, 0.8);
+      cursor: pointer;
+      outline: none;
+  }
+}
+
+.mob_container .loginWrapp .loginBox .forgotPassLink {
+position: absolute;
+left: 0px;
+bottom: 10px;
+text-align: center;
+display: flex;
+justify-content: center;
+width:100%;
+}
+.mob_container .loginWrapp .loginBox .forgotPassLink a{
+font-size: 13px;
+font-weight: 700;
+color: #919191;
+transition: all .25s;
+cursor: pointer;
+}
+.mob_container .loginWrapp .loginBox .forgotPassLink a:hover {
+color: #3ab376;
+}
+
+.mob_container .loginWrapp .loginBox .is-invalid, .mob_container .registerWrapp .registerBox .is-invalid {
+  background-color: rgb(241, 205, 205);
+  transition: all .5s;
+}
+
+.mob_container .loginWrapp .loginBox .is-valid, .mob_container .registerWrapp .registerBox .is-valid {
+  background-color: rgba(210, 250, 230, 0.8);
+  transition: all .5s;
+}
+
+/*=======================================================*/
 .errorName span {
     font-size:10px;
     color: red;
     margin:0p;
 }
-.rightSide .footer {
+.footer {
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding:0px;
     width:400px;
-    right: 15%;
+    right: 7%;
     margin-left: -200px;
-    bottom: 0px;
+    bottom: 20px;
     font-weight: 300;
     font-size: 10px;
     background-color: transparent;
 }
 
 @media only screen and (max-width: 1499px) {
-    .rightSide .footer small {
-    font-size: 10px;
+    .footer small {
+    font-size: 12px;
     }
-    .rightSide .footer .logo-text {
+    .footer .logo-text {
         width: 95px;
         height: 55px;
     }
 }
 @media only screen and (min-width: 1500px) {
-    .rightSide .footer small {
+    .footer small {
     font-size: 14px;
     }
-    .rightSide .footer .logo-text {
+    .footer .logo-text {
         width: 105px;
         height: 105px;
     }
@@ -2511,8 +2942,6 @@ input.datepick {
   align-self: center;
 }
 
-
-
 div.tasksList{
   position: relative;
   display: flex;
@@ -2620,4 +3049,425 @@ button.exportar i {
   padding: auto;
   color: white;
   font-size: 17px;
+}
+.toggleIt {
+  position: relative;
+  height: 100vh;
+  transition: 0.7s;
+}
+
+
+.mob_navbar {
+  position: absolute;
+  float: right;
+  right: 0px;
+  top: 0px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  width: 100%;
+}
+.mob_navbar ul {
+  list-style-type: none;
+  height: 80px;
+  padding: 30px 0px;
+}
+.mob_navbar ul li {
+  display: inline-block;
+  margin: 5px 10px;
+  transition: all .2s;
+  font-weight: 800;
+}
+.mob_navbar ul li:hover {
+  color: #51e49a;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 420px) {
+  .mob_navbar ul li {
+    font-size: 10px;
+  }
+}
+
+@media only screen and (min-width: 421px) {
+  .mob_navbar ul li {
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 720px) {
+  .mob_navbar ul li {
+    font-size: 17px;
+  }
+}
+
+
+
+
+@media only screen and (max-width: 1100px) {
+  .container {
+    display: none;
+  }
+  .mob_container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    width:100%;
+    height: 100%;
+    padding-bottom: 100px;
+  }
+  .mob_footer {
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    padding: 10px auto;
+    background-color: #3ab376;
+    bottom: 0px;
+    text-align: center;
+  }
+}
+@media only screen and (min-width: 1101px) {
+  .mob_container {
+    display: none;
+  }
+  .mob_footer {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .mob_container a .logo {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    width: 65px;
+    height: 65px;
+    margin: 10px;
+  }
+}
+@media only screen and (min-width: 1101px) {
+  .container {
+    min-width: 100%;
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    margin: 0px auto;
+    padding: 0px;
+    position: relative;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-template-areas: "container-1 container-2";
+  }
+  .welcomeMsg {
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .welcomeMsg {
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    z-index: 5;
+  }
+  .mob_footer .wrapper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .welcomeMsg h2 {
+    font-size: 30px;
+    font-weight: 800;
+  }
+  .mob_footer .wrapper h5 {
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    margin: auto;
+  }
+}
+@media only screen and (min-width: 421px) {
+  .welcomeMsg h2 {
+    font-size: 40px;
+    font-weight: 800;
+  }
+  .mob_footer .wrapper h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    margin: auto;
+  }
+}
+
+@media only screen and (min-width: 1101px) {
+  .welcomeMsg h2 {
+    font-size: 70px;
+    font-weight: 800;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .welcomeMsg h2 {
+    font-size: 100px;
+    font-weight: 800;
+  }
+}
+.container-1 {
+  grid-area: container-1;
+  background: #ffffff;
+  position: relative;
+  width: 100%;
+}
+
+.container-1 a .logo {
+  width: 75px;
+  height: 75px;
+  margin: 40px 40px 0 25px;
+}
+
+.container-1 .register {
+  position: absolute;
+  width: 500px;
+  height: 400px;
+  left: 50%;
+  top: 55%;
+  margin-top: -200px;
+  margin-left: -250px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-1 .register h2 {
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.container-1 .register button {
+  border: 0;
+  color: #ffffff;
+  background-color: #51e49a;
+  margin: 4% 0 10%;
+  padding: 15px 19px;
+  border-radius: 30px;
+  font-size: 20px;
+  box-shadow: 0 4px 2px rgba(81, 228, 154, 0.8);
+  cursor: pointer;
+  outline: none;
+}
+
+.container-1 .register a {
+  font-size: 21px;
+  margin-bottom: 2%;
+}
+.container-1 .register a:hover {
+  font-size: 21px;
+  margin-bottom: 2%;
+  color: rgba(19, 194, 107, 0.8);
+}
+.container-1 .social-network {
+  font-size: 18px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: #51e49a;
+  padding: 4% 6%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-1 .social-network a {
+  color: #ffffff;
+}
+
+.container-1 .social-network .pb {
+  padding-bottom: 10px;
+}
+
+.container-2 {
+  position: relative;
+  grid-area: container-2;
+  background: #e4e4e4;
+  padding: 45px 110px;
+}
+
+.container-2 .navbar {
+  position: relative;
+}
+
+.container-2 ul {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.container-2 ul li {
+  margin-left: 12%;
+  list-style: none;
+  width: 120px;
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.container-2 ul li:hover {
+  color: #51e49a;
+}
+
+@media only screen and (max-width: 1100px) {
+ 
+.mob_container .swiperContainer {
+  position: relative;
+  display: block;
+  justify-content: center;
+  margin-bottom: auto;
+  width: 100%;
+  padding: 0px auto;
+  height: 300px;
+  margin: 180px auto 0px;
+}
+.mob_container .swiperContainer .swiper-slide {
+  position: relative;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+}
+.mob_container .swiperContainer .swiper-slide img {
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+  }
+  .mob_container .swiperContainer .slide-swiper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0px auto 20px;
+  }
+} 
+
+.mob_container .register {
+  position: relative;
+  margin: 15px auto 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mob_container .register h2 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.mob_container .register button {
+  border: 0;
+  color: #ffffff;
+  background-color: #51e49a;
+  margin: 4% 0 10%;
+  padding: 15px 19px;
+  border-radius: 30px;
+  font-size: 16px;
+  box-shadow: 0 4px 2px rgba(81, 228, 154, 0.8);
+  cursor: pointer;
+  outline: none;
+}
+
+.mob_container .register a {
+  font-size: 12px;
+  margin-bottom: 2%;
+}
+.mob_container .register a:hover {
+  font-size: 12px;
+  margin-bottom: 2%;
+  color: rgba(19, 194, 107, 0.8);
+}
+/* 
+.swiper-slide {
+  position: relative;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+} */
+
+@media only screen and (min-width: 1101px) {
+  .container-2 .slide-swiper {
+    position: absolute;
+    top: 20%;
+    right: 100px;
+    width: 400px;
+    height: 320px;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .container-2 .slide-swiper {
+    position: absolute;
+    top: 20%;
+    right: 100px;
+    width: 470px;
+    height: 405px;
+  }
+}
+.container-2 .swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.container-2 .swiper-slide {
+  position: relative;
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+}
+@media only screen and (max-width: 1499px) {
+  .container-2 .swiper-slide img {
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: 320px;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .container-2 .swiper-slide img {
+    position: relative;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+.container-2 .swiper-slide .text-slide {
+  position: relative;
+  padding-right: 111px;
+  padding-left: 85px;
+  text-align: end;
+  font-weight: 300;
+  font-size: 17px;
+}
+
+.container-2 .footer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0px;
+  width: 400px;
+  left: 50%;
+  margin-left: -200px;
+  bottom: 8%;
+  font-weight: 300;
+  font-size: 10px;
+  background-color: transparent;
+}
+
+.container-2 .footer .logo-text {
+  width: 95px;
+  height: 55px;
 }

@@ -3312,9 +3312,8 @@ button.exportar i {
 }
 
 .container-2 ul li {
-  margin-left: 12%;
+  margin-left: 7%;
   list-style: none;
-  width: 120px;
   font-weight: 800;
   white-space: nowrap;
   cursor: pointer;

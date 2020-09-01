@@ -27,8 +27,12 @@
         <router-link tag="span" to="register">
           <button>Registrarse</button>
         </router-link>
-        <a href="#">Organízate</a>
-        <a href="#">Mantente al día</a>
+        <router-link tag="span" to="sobre_RGA">
+          <a href="#">Organízate</a>
+        </router-link>
+        <router-link tag="span" to="sobre_RGA">
+          <a href="#">Mantente al día</a>
+        </router-link>
         <router-link tag="span" to="login">
           <a href="#">Conéctate</a>
         </router-link>
@@ -48,8 +52,12 @@
           <router-link tag="span" to="register">
             <button>Registrarse</button>
           </router-link>
-          <a href="#">Organízate</a>
-          <a href="#">Mantente al día</a>
+          <router-link tag="span" to="sobre_RGA">
+            <a href="#">Organízate</a>
+          </router-link>
+          <router-link tag="span" to="sobre_RGA">
+            <a href="#">Mantente al día</a>
+          </router-link>
           <router-link tag="span" to="login">
             <a href="#">Conéctate</a>
           </router-link>

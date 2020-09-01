@@ -5,6 +5,9 @@
         <router-link to="/" tag="span">Inicio</router-link>
       </li>
       <li>
+        <router-link to="sobre_RGA" tag="span">Sobre RGA</router-link>
+      </li>
+      <li>
         <router-link to="register" tag="span">Registrarse</router-link>
       </li>
       <li>

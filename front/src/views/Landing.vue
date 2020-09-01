@@ -73,6 +73,9 @@
               <router-link to="/" tag="span">Inicio</router-link>
             </li>
             <li>
+              <router-link to="sobre_RGA" tag="span">Sobre RGA</router-link>
+            </li>
+            <li>
               <router-link to="register" tag="span">Regístrate</router-link>
             </li>
             <li>
@@ -136,7 +139,7 @@ export default {
   components: {
     Footer: footer,
     mobileNavbar,
-    mobFooter
+    mobFooter,
   },
   computed: {
     swiper() {

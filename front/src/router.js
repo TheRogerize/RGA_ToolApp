@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import SideBar from "./layout/logged/sidebar";
 import Landing from "./views/Landing.vue";
+import About from "./views/about.vue";
 import Login from "./views/Login.vue";
 import forgot from "./views/forgot.vue";
 import Logout from "./layout/logged/logout";
@@ -34,6 +35,16 @@ export default new Router({
       name: "landing",
       components: {
         default: Landing,
+      },
+      meta: {
+        requiresVisitor: true
+      }
+    },
+    {
+      path: "/sobre_RGA",
+      name: "about",
+      components: {
+        default: About,
       },
       meta: {
         requiresVisitor: true

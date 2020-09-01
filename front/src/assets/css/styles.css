@@ -362,11 +362,11 @@
 }
 @media only screen and (min-width: 1500px) {
     .outContainer .welcomeMsg h2 {
-        font-size: 100px;
+        font-size: 68px;
         font-weight: 800;
     }
     .outContainer .welcomeRegisterMsg h2 {
-        font-size: 100px;
+        font-size: 68px;
         font-weight: 800;
     }
 }
@@ -3085,13 +3085,13 @@ button.exportar i {
 
 @media only screen and (max-width: 420px) {
   .mob_navbar ul li {
-    font-size: 10px;
+    font-size: 7px;
   }
 }
 
 @media only screen and (min-width: 421px) {
   .mob_navbar ul li {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 @media only screen and (min-width: 720px) {
@@ -3173,6 +3173,7 @@ button.exportar i {
     top: 100px;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     text-align: center;
     z-index: 5;
@@ -3470,4 +3471,158 @@ button.exportar i {
 .container-2 .footer .logo-text {
   width: 95px;
   height: 55px;
+}
+
+.about {
+  position: absolute;
+  top: 25%;
+  overflow-x: auto;
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
+  align-content: center;
+  align-content: center;
+  width: 100%;
+  height: 300px;
+  margin: auto 0px;
+  padding: auto 20px;
+}
+.about .info {
+  position: relative;
+  display: column;
+  vertical-align: middle;
+  align-self: center;
+  text-align:center;
+  padding: auto 20px;
+}
+.about .info .circle-img {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  margin: 0px 5px;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5); 
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.5);
+}
+.about .info p {
+  color: rgb(47, 47, 47);
+  font-weight: 700;
+  margin-top: 10px;
+  line-height:14px;
+}
+.about::-webkit-scrollbar {
+  height:10px;
+  cursor: pointer;
+}
+.about::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(41, 41, 41, 0.3); 
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.about::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px #51e49abb; 
+  background-color: #51e49a;
+}
+@media only screen and (max-width: 419px) {
+  .about {
+    top: 47%;
+    grid-gap: 20px;
+    height: 215px;
+  }
+  .about .info {
+    width: 150px;
+  }
+  .about .info .circle-img {
+    height: 150px;
+    width: 150px;
+  }
+  .about .info p {
+    font-size: 10px;
+  }
+}
+@media only screen and (min-width: 420px) {
+  .about {
+    top: 44%;
+    grid-gap: 40px;
+    height: 200px;
+  }
+  .about .info {
+    width: 120px;
+  }
+  .about .info .circle-img {
+    height: 120px;
+    width: 120px;
+  }
+  .about .info p {
+    font-size: 10px;
+  }
+}
+@media only screen and (min-width: 720px) {
+  .about {
+    top: 35%;
+    grid-gap: 50px;
+    height: 250px;
+  }
+  .about .info {
+    width: 150px;
+  }
+  .about .info .circle-img {
+    height: 150px;
+    width: 150px;
+  }
+  .about .info p {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 1101px) {
+  .about {
+    top: 25%;
+    grid-gap: 50px;
+    height: 270px;
+  }
+  .about .info {
+    width: 200px;
+  }
+  .about .info .circle-img {
+    height: 200px;
+    width: 200px;
+  }
+  .about .info p {
+    font-size: 15px;
+  }
+}
+@media only screen and (min-width: 1500px) {
+  .about {
+    top: 25%;
+    grid-gap: 50px;
+    height: 300px;
+  }
+  .about .info {
+    width: 215px;
+  }
+  .about .info .circle-img {
+    height: 215px;
+    width: 215px;
+  }
+  .about .info p {
+    font-size: 15px;
+  }
+}
+
+
+.univImg {
+  background-image: url('../images/university.jpg');
+}
+.studentsImg {
+  background-image: url('../images/estudiantes.jpg');
+}
+.classImg {
+  background-image: url('../images/classroom.png');
+}
+.tasksImg {
+  background-image: url('../images/tareas.jpg');
 }

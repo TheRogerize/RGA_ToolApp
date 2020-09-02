@@ -216,7 +216,6 @@ export default {
         }
       } else {
         const url = "user/login";
-
         this.$api
           .post(url, user)
           .then((data) => {

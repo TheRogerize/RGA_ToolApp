@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
   limit: '50mb'
 }));
 app.use(bodyParser.json({ limit: '50mb' }));
-app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(session({ secret: 'passport-tutorial', cookie: { maxAge: 60000 }, resave: false, saveUninitialized: false }));
 
 // [SH] Catch unauthorised errors
@@ -34,12 +34,26 @@ app.use(function (err, req, res, next) {
 });
 
 app.use("/", index)
+//Handle Production
+console.log(process.env.NODE_ENV);
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(__dirname + '/public/'));
+
+  //Handle SPA
+  app.get(/.*/, (req, res) => res.sendFile(__dirname + '/public/index.html'));
+} else {
+  app.use(express.static(path.join(__dirname, 'public')));
+}
+
 InitiateMongoServer();
+
+
 
 var server = require('http').Server(app);
 let io = require('./controllers/socket.ctrl').initialize(server);
 
 
 server.listen(PORT, function () {
-  console.log('App is running on port '+ process.env.PORT + '!' );
+  console.log('App is running on port ' + process.env.PORT + '!');
 });
+

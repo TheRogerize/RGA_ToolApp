@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "dev": "node index.js"
+    "start": "node index.js",
+    "dev": "node index.js",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -30,7 +31,9 @@
     "path": "^0.12.7",
     "session": "^0.1.0",
     "socket.io": "^2.3.0",
-    "uws": "^100.0.1"
+    "uws": "^100.0.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",

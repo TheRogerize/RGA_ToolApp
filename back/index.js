@@ -35,7 +35,6 @@ app.use(function (err, req, res, next) {
 
 app.use("/", index)
 //Handle Production
-console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(__dirname + '/public/'));
 

@@ -39,7 +39,6 @@ async function create_contenido(req, res) {
     contenido.unidad = unidad
   
     await contenido.save()
-    //console.log(contenido)
     return res.status(200).send(contenido)
   } catch (err) {
     console.log(err.message);
@@ -67,7 +66,6 @@ function update_contenido(req, res) {
      }
     })
      .then(coordinador => { 
-       console.log("update")
        res.status(200).json( {
            'type' : 'success', 
            'message': 'Succ'
@@ -87,7 +85,6 @@ function update_contenido(req, res) {
 //Get all profesores por universidad
 async function getall_univplantilla(req, res){
   let universidadID
-  console.log(req.user)
   if(req.user.permiso == 1){
     let universidad = await Universidad.findOne({userID:req.user.id})
     universidadID = universidad._id
@@ -132,7 +129,6 @@ function getone_contenido(req, res){
         res.sendStatus(500);
         return
     }
-    console.log(oneContenido);
     return res.send(oneContenido);
   
     })

@@ -24,11 +24,8 @@ async function students_list(req, res) {
       let classroom = await Classroom.findOne({_id: req.params.classroomID})
       let profesor = await Profesor.findById(classroom.profesorID).populate('userID', 'nombre apellido correo telefono');
       
-      console.log(profesor)
       let alumnosID = classroom.alumnosID;
     let alumnos = await Alumno.find({"userID": { "$in": alumnosID } }).populate('userID', "nombre apellido correo telefono");
-      console.log(" PROBANDO LOS ALUMNOS");
-      console.log(alumnos)
       ejs.renderFile(path.join(__dirname, './templates/pdfs/', "students.ejs"), {students: alumnos, classroom, profesor}, (err, data) => {
       if (err) {
             res.send(err);

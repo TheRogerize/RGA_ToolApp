@@ -51,7 +51,7 @@ exports.initialize = (server) => {
                 decoded = jwt.verify(socket.handshake.query.token, "randomString");
 
                 socket.on('disconnect', (res) => {
-                    console.log("bye bye" + decoded.user.id)
+                    console.log("User has been disconnected " + decoded.user.id)
 
                     User.findOne({ _id: decoded.user.id }, function (err, user) {
                         if (err) {
@@ -59,7 +59,6 @@ exports.initialize = (server) => {
                         }
 
                         if (user) {
-                            console.log(user)
                             for (let i = 0; i < user.sockets.length; i++) {
                                 if (socket.id == user.sockets[i]) {
                                     user.sockets.splice(i, 1);
@@ -108,7 +107,7 @@ exports.initialize = (server) => {
                 })
                 socket.on('manual_disconnect', () => {
                     console.log('manual disc')
-                    console.log("manual bye" + decoded.user.id)
+                    console.log("manual disconnect " + decoded.user.id)
                     User.findOne({ _id: decoded.user.id }, function (err, user) {
                         if (err) {
                             console.log(err);

@@ -24,7 +24,6 @@ function getone(req, res){
       res.sendStatus(500);
       return
   }
-  console.log(redProduct);
   return res.send(redProduct);
 
   })
@@ -47,7 +46,6 @@ function getall(req, res){
 function create_aula(req, res){
   const errors = validationResult(req);
 
-  console.log(req.body);     
     var hat = new Aula();
     hat.name = req.body.name
     hat.description = req.body.description;
@@ -79,9 +77,6 @@ function create_aula(req, res){
 };
 
 function update_aula(req,res) {   
-  console.log(req.body); 
-    
-        
         if(req.body.name == '')
         {
             res.status(400);
@@ -124,7 +119,6 @@ function update_aula(req,res) {
          }
         })
       .then(Aula => { 
-        console.log("update")
         res.status(200).json( {
             'type' : 'success', 
             'message': 'Succ'
@@ -172,10 +166,6 @@ async function create_contenido(req, res) {
       contenido.creado_para = user.universidadID
       contenido.unidad = unidad
       await contenido.save()
-      console.log(contenido)
-
-  
-  
     } catch (err) {
       console.log(err.message);
       res.status(500).send("Error in Saving");

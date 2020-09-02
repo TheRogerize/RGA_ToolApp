@@ -1,6 +1,5 @@
 <template>
   <section class="adminDashboard">
-    <div class="menu" @click="open">Menú</div>
     <div class="cardCounts">
       <div class="card">
         <div class="color shadowRed">

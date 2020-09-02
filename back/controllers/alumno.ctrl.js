@@ -17,7 +17,6 @@ module.exports = {
 }
 
 async function signup(req, res) {
-  console.log("sigunup")
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({
@@ -55,7 +54,6 @@ async function signup(req, res) {
       alumno.userID = user._id
       await alumno.save();
 
-      console.log(alumno)
       const payload = {
         user: {
           id: user.id,
@@ -178,7 +176,6 @@ async function getall(req,res) {
 async function get_alumno_room(req,res){
 
   let alumno = await Alumno.findOne({userID:req.user.id}).populate({path:'aulasID', select:'nombre_aula class_chat'})
-  console.log(alumno)
   //let alumno = await Classroom.find({alumnosID: "5efa6e49ebbc0401a4f613a4"}).populate("alumnosID");
   if(alumno !=""){
     res.status(200).send(alumno)

@@ -166,7 +166,6 @@ async function me(req ,res) {
     console.log(e)
     res.send({ message: "Error in Fetching user" });
   }
-        
 }
 
 async function test(req, res) {

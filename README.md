@@ -52,8 +52,6 @@ npm run dev
 
 
 ``` 
-#### Note: Be aware that you will have to setup your own MongoDB Atlas Database in the .env file in the "back" directory
-
 
 # Front-end Setup
 

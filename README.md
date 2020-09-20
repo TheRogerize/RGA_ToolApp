@@ -1,6 +1,6 @@
 # RGA_ToolApp
 ## DEMO 
-[Click here to check the demo](https://rga-app.herokuapp.com/) or (https://rga-app.herokuapp.com/) 
+[Click here to check the demo](https://rga-app.herokuapp.com/)  ||  https://rga-app.herokuapp.com/ 
 
 ### Log in as: 
 

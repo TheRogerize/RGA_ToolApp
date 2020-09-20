@@ -1,4 +1,4 @@
-# RGA_ToolApp
+# RGA Academy Web Application
 ## DEMO 
 [Click here to check the demo](https://rga-app.herokuapp.com/)  ||  https://rga-app.herokuapp.com/ 
 
@@ -71,5 +71,4 @@ yarn start
 yarn run build
 
 ``` 
-#### Note: Be aware that you will have to setup your own Cloudinary API KEY  in the .env file in the "front" directory
 

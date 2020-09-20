@@ -71,7 +71,6 @@ export default {
   },
   methods: {
     onScroll(evt) {
-      console.log(evt);
     }
   }
 };

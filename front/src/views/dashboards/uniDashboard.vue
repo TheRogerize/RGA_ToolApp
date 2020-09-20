@@ -157,7 +157,6 @@ export default {
   computed: {
     coordinadores() {
       let coordinadores = this.$store.getters["univ/getCoordinadores"];
-      console.log(coordinadores);
       return coordinadores;
     },
     facultades() {

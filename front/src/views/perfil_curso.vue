@@ -614,7 +614,6 @@ export default {
   },
   created() {
     this.loadingInfo = true;
-    console.log(this.$route.params.id);
     //Llamar action que consume la API
     this.$store.dispatch("classroom/getCursoInfo", this.$route.params.id);
     this.$store.dispatch("classroom/getStudents", this.$route.params.id);
@@ -628,7 +627,6 @@ export default {
         this.$route.params.id
       );
     } catch (e) {
-      console.log("ocurrio un error on mount");
     }
   },
   computed: {
@@ -705,8 +703,6 @@ export default {
         userid,
         index,
       };
-      console.log(userid);
-      console.log(payload);
       this.$store.dispatch("classroom/acceptPending", payload);
     },
     declinePending(roomid, userid, index) {
@@ -716,8 +712,6 @@ export default {
           userid,
           index,
         };
-        console.log(userid);
-        console.log(payload);
         this.$store.dispatch("classroom/declinePending", payload);
       }
     },
@@ -728,7 +722,6 @@ export default {
           tareaid,
           index,
         };
-        console.log(payload);
         this.$store.dispatch("classroom/deleteTarea", payload);
       }
     },
@@ -819,15 +812,11 @@ export default {
         }, 3500);
       }
       this.progress = percent;
-      console.log(percent);
     },
 
     inputDidChange(e) {
       let inputData = e.target.files[0];
-      console.log(inputData);
-      console.log(inputData);
       this.newFile = new FormData(this.$refs.form);
-      console.log(this.newFile);
     },
     uploadFile() {
       if (!this.$v.cloudName.$invalid) {
@@ -877,7 +866,6 @@ export default {
             })
 
             .catch((error) => {
-              console.log(error);
               let code = error.response.status;
               let message = error.response.data.message;
               if (code == 401) {
@@ -895,10 +883,8 @@ export default {
     inputTareaDidChange(e) {
       let inputData = e.target.files[0];
       this.newTareaFile = new FormData(this.$refs.form2);
-      console.log(this.newTareaFile);
     },
     uploadTareaFile() {
-      console.log(this.tarea);
       if (!this.$v.tarea.$invalid) {
         this.crearTarea(this.newFile, 1, this.onProgress);
       } else {
@@ -953,7 +939,6 @@ export default {
             })
 
             .catch((error) => {
-              console.log(error);
               let code = error.response.status;
               let message = error.response.data.message;
               if (code == 401) {
@@ -964,8 +949,6 @@ export default {
             });
         })
         .catch((error) => {
-          console.log(error);
-          console.log(error.response.data);
           this.unauthorized("Ocurrio un error al subir tu archivo");
         });
     },

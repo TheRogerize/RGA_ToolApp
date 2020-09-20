@@ -63,7 +63,6 @@ export default {
       return this.$store.getters['user/isLoggedIn'];
     },
     userdata(){
-      console.log(this.user);
     }
   },
   created() {
@@ -78,7 +77,6 @@ export default {
   methods: {
     logout(e) {
       e.preventDefault();
-      console.log("log out method")
       /* First we remove the token in order to stop logging the user on app start-up */
       console.log(Cookies.remove("token"));
       /* Then we clear the user object from our store */

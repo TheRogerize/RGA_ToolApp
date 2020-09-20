@@ -112,7 +112,6 @@ export default {
         })
         .then(() => {})
         .catch((errors) => {
-          console.log(errors);
         });
     },
 

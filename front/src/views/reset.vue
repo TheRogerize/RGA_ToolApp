@@ -174,7 +174,6 @@ export default {
       this.$api
         .post(url, clave)
         .then(data => {
-          console.log(data)
         })
 
         .catch((error) => {

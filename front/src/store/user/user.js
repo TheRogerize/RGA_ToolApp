@@ -105,7 +105,6 @@ const user = {
           commit('USER_INFO', response.data);
         })
         .catch(error => {
-          console.log('error:', error.response);
           if (error.response.data.message == "Invalid Token") {
             commit("LOGOUT");
           }

@@ -5,23 +5,23 @@
 ### Log in as: 
 
 #### Admin:
-Email: adminroy@gmail.com
+Email: adminroy@gmail.com\
 Password: Asd123.
 
 #### University:
-Email: university@gmail.com
+Email: university@gmail.com\
 Password: Asd123.
 
 #### Coordinator:
-Email: coordinatortest@gmail.com
+Email: coordinatortest@gmail.com\
 Password: Asd123.
 
 #### Teacher:
-Email: teacher@gmail.com
+Email: teacher@gmail.com\
 Password: Asd123.
 
 #### Student:
-Email: student@gmail.com
+Email: student@gmail.com\
 Password: Asd123.
 
 
